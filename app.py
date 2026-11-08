@@ -3,9 +3,6 @@ from pages.card import show_auth_dialog, delete_account, logout, handle_recovery
 from src.services.auth_service import restore_session
 from streamlit_js_eval import streamlit_js_eval
 import time
-from streamlit_cookies_controller import CookieController
-
-st.session_state["_cookie"] = CookieController()
 
 RESTRICTED_WITHOUT_LOGIN = {
     "peta_uhi",
@@ -94,7 +91,8 @@ pages = [
 ]
 
 handle_recovery_code()
-restore_session()
+if st.session_state.get("page") != "new_password":
+    restore_session()
 
 user = st.session_state.get("user")
 if not user and not st.session_state.get("cookie_checked"):
@@ -127,8 +125,14 @@ with st.sidebar:
                 show_auth_dialog()        
 
 
-if page.url_path in RESTRICTED_WITHOUT_LOGIN and not user:
+dialog_opened = False
+if st.session_state.pop("open_dialog", False):
     show_auth_dialog()
+    dialog_opened = True
+
+if page.url_path in RESTRICTED_WITHOUT_LOGIN and not user:
+    if not dialog_opened:
+        show_auth_dialog()
     st.stop()
 
 # open_requested = st.session_state.pop("open_dialog", False)

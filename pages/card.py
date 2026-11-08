@@ -4,7 +4,6 @@ from src.database.client import get_supabase
 
 import streamlit as st
 import time
-
 def handle_recovery_code():
     if "code" not in st.query_params:
         return
@@ -24,14 +23,12 @@ def handle_recovery_code():
 
 def go(page):
     st.session_state["page"] = page
-    st.session_state["open_dialog"] = True
     st.rerun()
 
 @st.dialog("Login")
 def login_page():
     if err := st.session_state.pop("auth_error", None):
         st.error(err)
-
     email = st.text_input("Email", placeholder = "Masukkan email disini", type = "email", required = True, max_chars = 255)
     password = st.text_input("Password", placeholder = "Masukkan password disini", type = "password", required = True, icon = ":material/key:", max_chars = 255)
 
@@ -130,7 +127,6 @@ def forget_password():
 
 @st.dialog("Password Baru")
 def new_password_page():
-    get_supabase().auth.sign_out()
     password = st.text_input("Password", placeholder = "Masukkan password disini", type = "password", required = True, icon = ":material/key:", max_chars = 255)
     password_confirm = st.text_input("Komfirmasi password", placeholder = "Masukkan konfirmasi password disini", type = "password", required = True, icon = ":material/key:", max_chars = 255)
 
