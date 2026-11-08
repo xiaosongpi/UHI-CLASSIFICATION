@@ -36,6 +36,7 @@ def handle_recovery_code():
 
 def go(page):
     st.session_state["page"] = page
+    st.session_state["open_dialog"] = True
     st.rerun()
 
 @st.dialog("Login")
@@ -123,8 +124,6 @@ def forget_password():
                 reset_password(email)
             
             st.success("Email telah terkirim")
-            st.rerun()
-
         except ValueError as e:
             st.error(str(e))
 
@@ -147,9 +146,10 @@ def new_password_page():
         try:
             with st.spinner("Mengirimkan email"):
                 update_password(password, password_confirm)
-            
-            st.success("Password telah terupdate")
+                get_supabase().auth.sign_out()
+
             st.session_state["page"] = "login"
+            st.session_state["open_dialog"] = True
             st.rerun()
 
         except ValueError as e:
