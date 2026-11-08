@@ -1,4 +1,6 @@
 .venv
 .env
-data
 src/preprocessing/visual
+data/raw_data/landsat
+data/raw_data/landsat_30
+data

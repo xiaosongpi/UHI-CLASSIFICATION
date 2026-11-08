@@ -5,7 +5,6 @@ from function._02_clipping import clipping_jakarta_boundary
 from function._03_cloud_mask import cloud_masking
 from function._04_rescalling import rescalling_ST_SR
 from preprocessing.function._06_indeks_spektral import index_spectral
-from function._06_outlier import outlier_detection
 from function._07_composit_monthly import composite_image
 from preprocessing.function._05_inverse_distance_weighting import inverse_distance_weighting, test_idw
 from preprocessing.function._08_statistic_count import count_statistic
