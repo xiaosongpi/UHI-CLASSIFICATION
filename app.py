@@ -85,7 +85,7 @@ pages = [
     ),
     st.Page(
         "pages/performance.py", 
-        title="Performa Model", 
+        title="Evaluasi Model", 
         icon=":material/trending_up:",
         url_path = "performa_model"
     ),
