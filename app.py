@@ -3,6 +3,9 @@ from pages.card import show_auth_dialog, delete_account, logout
 from src.services.auth_service import restore_session
 from streamlit_js_eval import streamlit_js_eval
 import time
+from streamlit_cookies_controller import CookieController
+
+st.session_state["_cookie"] = CookieController()
 
 RESTRICTED_WITHOUT_LOGIN = {
     "peta_uhi",

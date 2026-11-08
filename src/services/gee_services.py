@@ -21,14 +21,13 @@ def upload_file(file, file_name):
 
 def save_landsat_images(area, start_date, end_date):
     region = get_region(area)
-
     image_ids = (
         get_landsat_image(area, start_date, end_date)
         .aggregate_array("system:id")
         .getInfo()
     )
 
-    saved = []
+    saved, errors = [], []
 
     for index, image_id in enumerate(image_ids):
         try:
@@ -56,9 +55,12 @@ def save_landsat_images(area, start_date, end_date):
 
         except Exception as e:
             print("GAGAL", image_id, e)
+            errors.append(f"{image_id}: {e}")
+
+    if image_ids and not saved:
+        raise RuntimeError(f"{len(image_ids)} citra ditemukan, tapi semua gagal. Contoh error: {errors[0]}")
 
     return saved
-
 
 def get_supabase_file(file_name):
     file = get_supabase().storage.from_("gee-collection").download(file_name)

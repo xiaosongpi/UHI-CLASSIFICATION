@@ -3,7 +3,13 @@ from streamlit_cookies_controller import CookieController
 from src.database.client import get_supabase
 from src.database import user_db
 
-def register(username, email, password, password_confirm, role = "user"):
+def get_cookie():
+    if "_cookie" not in st.session_state:
+        st.session_state["_cookie"] = CookieController()
+
+    return st.session_state["_cookie"]
+
+def register(username, email, password, password_confirm, role="user"):
     if not username:
         raise ValueError("Username tidak boleh kosong")
     if not email:
@@ -26,7 +32,7 @@ def register(username, email, password, password_confirm, role = "user"):
 
         if not response.user:
             raise ValueError("Gagal register pengguna")
-        
+
         user_db.create(
             auth_id=response.user.id,
             username=username,
@@ -35,31 +41,46 @@ def register(username, email, password, password_confirm, role = "user"):
         )
 
         return response.user
-        
+
     except Exception as e:
         raise ValueError(str(e))
 
-cookie = CookieController()
 
 def create_session(user):
-    cookie.set("access", user["access_token"], max_age = 2592000)
-    cookie.set("refresh", user["refresh_token"], max_age = 2592000)
-    
+    cookie = get_cookie()
+
+    try:
+        cookie.set("access", user["access_token"], max_age=2592000)
+        cookie.set("refresh", user["refresh_token"], max_age=2592000)
+    except TypeError:
+        pass
+
+
 def delete_session():
-    get_supabase().auth.sign_out()
-    cookie.remove("access")
-    cookie.remove("refresh")
+    try:
+        get_supabase().auth.sign_out()
+    finally:
+        st.session_state.pop("user", None)
+
+        cookie = get_cookie()
+
+        try:
+            cookie.remove("access")
+            cookie.remove("refresh")
+        except TypeError:
+            pass
+
 
 def restore_session():
     if st.session_state.get("user"):
         return
 
+    cookie = get_cookie()
+
     try:
         access = cookie.get("access")
         refresh = cookie.get("refresh")
     except TypeError:
-        # Cookie belum dimuat browser. Streamlit akan rerun otomatis
-        # begitu cookie tiba, dan saat itu get() sudah berfungsi.
         return
 
     if not access or not refresh:
@@ -69,6 +90,8 @@ def restore_session():
         res = get_supabase().auth.set_session(access, refresh)
         profile = user_db.get_by_auth_id(res.user.id)
 
+        if not profile:
+            raise ValueError("Profil pengguna tidak ditemukan")
         user = {
             "id": profile["id"],
             "auth_id": res.user.id,
@@ -87,7 +110,7 @@ def restore_session():
             cookie.remove("refresh")
         except Exception:
             pass
-        
+
 def login(email, password):
     if not email:
         raise ValueError("Email tidak boleh kosong")
@@ -143,7 +166,9 @@ def update_password(password, password_confirm):
         raise ValueError("Password tidak sama")
 
     try:
-        response = get_supabase().auth.update_user({"password": password})
+        response = get_supabase().auth.update_user({
+            "password": password
+        })
 
         return response.user
 
