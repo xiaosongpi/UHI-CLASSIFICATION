@@ -1,22 +1,35 @@
 from src.services.user_service import delete_user
-from src.services.auth_service import login, register, reset_password, update_password, create_session, delete_session
+from src.services.auth_service import login, register, reset_password, update_password, create_session, delete_session, get_cookie
 from src.database.client import get_supabase
 
 import streamlit as st
 import time
+
 def handle_recovery_code():
-    if "code" not in st.query_params:
+    code = st.query_params.get("code")
+    if not code:
         return
 
-    code = st.query_params["code"]
+    cookie = get_cookie()
+    verifier = cookie.get("cv")
+
+    # cookie kadang baru terbaca di run kedua
+    if not verifier and not st.session_state.get("cv_retry"):
+        st.session_state["cv_retry"] = True
+        time.sleep(0.5)
+        st.rerun()
 
     try:
-        get_supabase().auth.exchange_code_for_session({"auth_code": code})
+        sb = get_supabase()
+        sb.auth._storage.set_item(f"{sb.auth._storage_key}-code-verifier", verifier or "")
+        sb.auth.exchange_code_for_session({"auth_code": code})
         st.session_state["page"] = "new_password"
+        cookie.remove("cv")
     except Exception as e:
         st.session_state["page"] = "login"
         st.session_state["auth_error"] = str(e)
 
+    st.session_state.pop("cv_retry", None)
     st.session_state["open_dialog"] = True
     st.query_params.clear()
     st.rerun()

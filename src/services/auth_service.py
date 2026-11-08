@@ -146,12 +146,15 @@ def reset_password(email):
     if not email:
         raise ValueError("Email tidak boleh kosong")
 
-    get_supabase().auth.reset_password_for_email(
+    sb = get_supabase()
+    sb.auth.reset_password_for_email(
         email,
-        options={
-            "redirect_to": "https://jakuhi.streamlit.app/"
-        }
+        options={"redirect_to": "https://jakuhi.streamlit.app/"}
     )
+
+    verifier = sb.auth._storage.get_item(f"{sb.auth._storage_key}-code-verifier")
+    if verifier:
+        get_cookie().set("cv", verifier, max_age=3600)
 
 def update_password(password, password_confirm):
     if not password:
