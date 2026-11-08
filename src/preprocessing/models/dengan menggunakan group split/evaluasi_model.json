@@ -1,0 +1,57 @@
+{
+  "confusion_matrix": [
+    [
+      15,
+      2,
+      1
+    ],
+    [
+      3,
+      34,
+      4
+    ],
+    [
+      0,
+      10,
+      15
+    ]
+  ],
+  "accuracy": 0.7619047619047619,
+  "macro_precision": 0.7741545893719807,
+  "macro_recall": 0.7542005420054201,
+  "macro_f1": 0.7605363984674329,
+  "n_test": 84,
+  "breaks": {
+    "b1": 35.566680908203125,
+    "b2": 43.18535232543945,
+    "gvf": 0.8325447337152233
+  },
+  "best_params": {
+    "learning_rate": 0.0003,
+    "n_transformer": 1,
+    "d_model": 96
+  },
+  "best_epoch": 26,
+  "best_val_loss": 0.6307528614997864,
+  "training_time": 17.913994299946353,
+  "per_class": {
+    "Rendah": {
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "f1_score": 0.8333333333333334,
+      "support": 18
+    },
+    "Normal": {
+      "precision": 0.7391304347826086,
+      "recall": 0.8292682926829268,
+      "f1_score": 0.7816091954022989,
+      "support": 41
+    },
+    "Tinggi": {
+      "precision": 0.75,
+      "recall": 0.6,
+      "f1_score": 0.6666666666666666,
+      "support": 25
+    }
+  }
+}

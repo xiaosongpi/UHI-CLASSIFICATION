@@ -1,0 +1,679 @@
+subdistrict,period,kelas_sebenarnya,kelas_prediksi,prob_rendah,prob_normal,prob_tinggi,split
+Gambir,2019-04,Rendah,Normal,0.30888024,0.6513439,0.03977588,latih
+Sawah Besar,2019-04,Rendah,Normal,0.2704163,0.68371147,0.045872193,latih
+Kemayoran,2019-04,Rendah,Normal,0.13633353,0.78845364,0.075212784,latih
+Senen,2019-04,Rendah,Normal,0.09651148,0.8015877,0.10190077,latih
+Menteng,2019-04,Rendah,Normal,0.28025982,0.6791037,0.040636513,latih
+Tanah Abang,2019-04,Rendah,Normal,0.077199735,0.8132421,0.1095582,latih
+Johar Baru,2019-04,Rendah,Normal,0.14829391,0.77433157,0.0773746,latih
+Penjaringan,2019-04,Rendah,Normal,0.38338897,0.5719991,0.044611976,uji
+Tanjung Priok,2019-04,Tinggi,Normal,0.07694806,0.77472115,0.14833085,latih
+Koja,2019-04,Tinggi,Normal,0.16995384,0.7579503,0.07209595,latih
+Cilincing,2019-04,Tinggi,Tinggi,0.034314383,0.28167927,0.68400633,latih
+Pademangan,2019-04,Normal,Normal,0.20143287,0.74905294,0.049514215,latih
+Cengkareng,2019-04,Normal,Tinggi,0.029861756,0.23593368,0.73420465,latih
+Taman Sari,2019-04,Rendah,Normal,0.2684238,0.67817557,0.053400595,latih
+Kebon Jeruk,2019-04,Normal,Tinggi,0.02915324,0.15601537,0.81483144,latih
+Kalideres,2019-04,Normal,Normal,0.043443747,0.5342266,0.42232972,latih
+Pal Merah,2019-04,Tinggi,Tinggi,0.02808205,0.1896841,0.7822338,latih
+Kembangan,2019-04,Normal,Normal,0.05771427,0.5989576,0.3433282,latih
+Setiabudi,2019-04,Rendah,Normal,0.083168365,0.8132623,0.10356935,latih
+Kebayoran Lama,2019-04,Normal,Tinggi,0.030604111,0.25802353,0.7113724,latih
+Cilandak,2019-04,Rendah,Normal,0.10778039,0.7588497,0.13336995,latih
+Kebayoran Baru,2019-04,Normal,Normal,0.04671486,0.5601498,0.39313528,latih
+Jagakarsa,2019-04,Rendah,Normal,0.06909482,0.6904799,0.24042535,uji
+Pesanggrahan,2019-04,Tinggi,Tinggi,0.03209945,0.23936464,0.7285359,latih
+Pasar Rebo,2019-04,Rendah,Normal,0.27939895,0.6555175,0.0650835,latih
+Cakung,2019-04,Normal,Normal,0.09687852,0.70159686,0.20152463,latih
+Gambir,2019-05,Normal,Normal,0.18518147,0.76462734,0.0501912,latih
+Sawah Besar,2019-05,Normal,Normal,0.14359632,0.78733385,0.06906988,latih
+Kemayoran,2019-05,Tinggi,Tinggi,0.03358116,0.42565727,0.54076153,latih
+Senen,2019-05,Normal,Normal,0.045573264,0.6904803,0.26394644,latih
+Cempaka Putih,2019-05,Tinggi,Normal,0.03543537,0.4922331,0.47233152,validasi
+Menteng,2019-05,Normal,Normal,0.22708593,0.72810656,0.04480753,latih
+Tanah Abang,2019-05,Normal,Normal,0.15655752,0.78641015,0.057032347,latih
+Johar Baru,2019-05,Tinggi,Tinggi,0.034155194,0.29273796,0.6731069,latih
+Penjaringan,2019-05,Normal,Normal,0.3716907,0.58565366,0.04265564,uji
+Tanjung Priok,2019-05,Normal,Normal,0.1251258,0.789719,0.08515522,latih
+Koja,2019-05,Tinggi,Normal,0.05115538,0.71798587,0.23085882,latih
+Cilincing,2019-05,Rendah,Normal,0.33910695,0.61256015,0.048332963,latih
+Pademangan,2019-05,Normal,Normal,0.3458771,0.6136711,0.04045184,latih
+Kelapa Gading,2019-05,Normal,Normal,0.24556397,0.71019995,0.044236064,latih
+Cengkareng,2019-05,Normal,Normal,0.07891066,0.81472766,0.10636163,latih
+Grogol Petamburan,2019-05,Normal,Normal,0.09593071,0.80457866,0.099490605,validasi
+Taman Sari,2019-05,Normal,Normal,0.12116697,0.7883992,0.090433806,latih
+Tambora,2019-05,Tinggi,Normal,0.08344474,0.75927734,0.15727784,latih
+Kebon Jeruk,2019-05,Normal,Normal,0.044164103,0.6663374,0.2894985,latih
+Kalideres,2019-05,Normal,Normal,0.20353673,0.74625754,0.050205797,latih
+Pal Merah,2019-05,Tinggi,Tinggi,0.030756213,0.3059841,0.6632596,latih
+Kembangan,2019-05,Normal,Normal,0.11469985,0.77365404,0.11164609,latih
+Tebet,2019-05,Tinggi,Tinggi,0.028235992,0.23452699,0.73723704,latih
+Setiabudi,2019-05,Normal,Normal,0.14663857,0.79010946,0.06325191,latih
+Mampang Prapatan,2019-05,Normal,Normal,0.057233866,0.64639217,0.29637396,validasi
+Pasar Minggu,2019-05,Normal,Normal,0.10193635,0.742956,0.15510774,uji
+Kebayoran Lama,2019-05,Normal,Normal,0.10527251,0.776683,0.118044525,latih
+Cilandak,2019-05,Normal,Normal,0.11991235,0.7749403,0.10514735,latih
+Kebayoran Baru,2019-05,Normal,Normal,0.107732855,0.7759744,0.11629278,latih
+Pancoran,2019-05,Tinggi,Tinggi,0.033676136,0.32805032,0.63827354,uji
+Jagakarsa,2019-05,Normal,Normal,0.07838686,0.6340334,0.2875797,uji
+Pesanggrahan,2019-05,Normal,Normal,0.08546764,0.7427905,0.1717418,latih
+Matraman,2019-05,Tinggi,Tinggi,0.031605635,0.23810753,0.7302868,latih
+Pulogadung,2019-05,Tinggi,Tinggi,0.03727545,0.47236308,0.49036148,latih
+Jatinegara,2019-05,Tinggi,Tinggi,0.027972817,0.2144506,0.7575765,latih
+Kramatjati,2019-05,Tinggi,Tinggi,0.028744193,0.21664539,0.75461036,latih
+Pasar Rebo,2019-05,Tinggi,Tinggi,0.030626003,0.28031176,0.68906224,latih
+Cakung,2019-05,Normal,Normal,0.07707047,0.7714801,0.15144937,latih
+Duren Sawit,2019-05,Tinggi,Tinggi,0.029412935,0.2891108,0.68147624,validasi
+Makasar,2019-05,Normal,Normal,0.12273147,0.7373266,0.13994187,validasi
+Ciracas,2019-05,Tinggi,Tinggi,0.031057281,0.2842344,0.6847083,latih
+Cipayung,2019-05,Normal,Normal,0.11594129,0.7655048,0.11855394,latih
+Gambir,2019-06,Normal,Normal,0.35197,0.60994273,0.038087264,latih
+Sawah Besar,2019-06,Normal,Normal,0.08612118,0.7906452,0.12323357,latih
+Kemayoran,2019-06,Normal,Tinggi,0.030563692,0.33460295,0.63483334,latih
+Senen,2019-06,Normal,Normal,0.044904523,0.6856252,0.26947024,latih
+Cempaka Putih,2019-06,Normal,Normal,0.03533029,0.4859076,0.47876215,validasi
+Menteng,2019-06,Normal,Normal,0.13319361,0.8015504,0.06525596,latih
+Tanah Abang,2019-06,Normal,Normal,0.1223628,0.8107618,0.066875346,latih
+Johar Baru,2019-06,Normal,Tinggi,0.03370285,0.24299383,0.72330326,latih
+Penjaringan,2019-06,Rendah,Normal,0.32478693,0.6345647,0.040648367,uji
+Tanjung Priok,2019-06,Normal,Normal,0.14978708,0.78434235,0.06587052,latih
+Koja,2019-06,Tinggi,Tinggi,0.03226675,0.41666046,0.5510728,latih
+Cilincing,2019-06,Tinggi,Normal,0.15984286,0.74411494,0.09604217,latih
+Pademangan,2019-06,Normal,Normal,0.25598213,0.69814473,0.045873124,latih
+Kelapa Gading,2019-06,Normal,Normal,0.12691902,0.81433356,0.058747478,latih
+Cengkareng,2019-06,Normal,Normal,0.20319547,0.7487131,0.048091535,latih
+Grogol Petamburan,2019-06,Normal,Normal,0.09152507,0.8073884,0.10108647,validasi
+Taman Sari,2019-06,Normal,Normal,0.13949952,0.78188026,0.0786202,latih
+Tambora,2019-06,Normal,Normal,0.13400778,0.78079987,0.08519234,latih
+Kebon Jeruk,2019-06,Normal,Normal,0.042524047,0.67899334,0.27848268,latih
+Kalideres,2019-06,Rendah,Normal,0.29748198,0.6619565,0.040561546,latih
+Pal Merah,2019-06,Normal,Tinggi,0.030787034,0.30965868,0.65955436,latih
+Kembangan,2019-06,Normal,Normal,0.14883766,0.78981614,0.06134625,latih
+Tebet,2019-06,Tinggi,Tinggi,0.027880948,0.22009976,0.7520193,latih
+Setiabudi,2019-06,Normal,Normal,0.07313432,0.79298896,0.13387677,latih
+Mampang Prapatan,2019-06,Normal,Normal,0.039113846,0.5096479,0.45123824,validasi
+Pasar Minggu,2019-06,Normal,Normal,0.09878256,0.73867935,0.16253813,uji
+Kebayoran Lama,2019-06,Normal,Normal,0.109173685,0.79337084,0.09745551,latih
+Cilandak,2019-06,Rendah,Normal,0.19753388,0.7398752,0.06259094,latih
+Kebayoran Baru,2019-06,Normal,Normal,0.27622402,0.6826738,0.041102126,latih
+Pancoran,2019-06,Tinggi,Tinggi,0.03918552,0.40302715,0.5577873,uji
+Jagakarsa,2019-06,Normal,Normal,0.103231005,0.7265058,0.17026325,uji
+Pesanggrahan,2019-06,Normal,Normal,0.09567757,0.7588447,0.14547774,latih
+Matraman,2019-06,Tinggi,Tinggi,0.029392725,0.19452351,0.77608377,latih
+Pulogadung,2019-06,Normal,Tinggi,0.031828303,0.39279708,0.57537454,latih
+Jatinegara,2019-06,Tinggi,Tinggi,0.028226724,0.20098236,0.77079093,latih
+Kramatjati,2019-06,Tinggi,Tinggi,0.027951421,0.1988753,0.77317333,latih
+Pasar Rebo,2019-06,Tinggi,Tinggi,0.034476977,0.34037948,0.62514347,latih
+Cakung,2019-06,Tinggi,Normal,0.062274534,0.602681,0.33504453,latih
+Duren Sawit,2019-06,Tinggi,Tinggi,0.029928502,0.3037516,0.6663199,validasi
+Makasar,2019-06,Tinggi,Normal,0.100991115,0.71211916,0.18688974,validasi
+Ciracas,2019-06,Tinggi,Tinggi,0.038211487,0.40752023,0.55426824,latih
+Cipayung,2019-06,Normal,Normal,0.11138685,0.747234,0.14137922,latih
+Gambir,2019-07,Normal,Normal,0.17266151,0.7762718,0.051066723,latih
+Sawah Besar,2019-07,Normal,Normal,0.14635073,0.7875907,0.066058524,latih
+Kemayoran,2019-07,Normal,Normal,0.04048178,0.6433922,0.31612605,latih
+Senen,2019-07,Normal,Normal,0.045021746,0.6895886,0.2653897,latih
+Cempaka Putih,2019-07,Tinggi,Tinggi,0.034576356,0.46235794,0.50306565,validasi
+Menteng,2019-07,Normal,Normal,0.2334929,0.72171146,0.044795718,latih
+Tanah Abang,2019-07,Normal,Normal,0.100989796,0.79152393,0.107486196,latih
+Johar Baru,2019-07,Tinggi,Tinggi,0.03511295,0.32692328,0.6379637,latih
+Penjaringan,2019-07,Normal,Normal,0.36447132,0.5932553,0.042273346,uji
+Tanjung Priok,2019-07,Normal,Normal,0.14047484,0.7812,0.07832516,latih
+Koja,2019-07,Tinggi,Normal,0.06771857,0.7647333,0.16754815,latih
+Cilincing,2019-07,Normal,Normal,0.25464043,0.6935948,0.051764723,latih
+Pademangan,2019-07,Normal,Normal,0.3079963,0.6498987,0.04210504,latih
+Kelapa Gading,2019-07,Normal,Normal,0.231564,0.7223557,0.046080258,latih
+Cengkareng,2019-07,Normal,Normal,0.070616305,0.8179217,0.11146202,latih
+Grogol Petamburan,2019-07,Normal,Normal,0.1107568,0.8019991,0.0872442,validasi
+Taman Sari,2019-07,Normal,Normal,0.11637651,0.79641217,0.08721128,latih
+Tambora,2019-07,Tinggi,Normal,0.07719393,0.7702201,0.15258603,latih
+Kebon Jeruk,2019-07,Normal,Normal,0.0382305,0.54975665,0.4120129,latih
+Kalideres,2019-07,Normal,Normal,0.13436845,0.8019355,0.06369601,latih
+Pal Merah,2019-07,Tinggi,Tinggi,0.030893622,0.33330053,0.63580585,latih
+Kembangan,2019-07,Normal,Normal,0.10063357,0.7507686,0.14859779,latih
+Tebet,2019-07,Normal,Tinggi,0.030155385,0.32573536,0.64410925,latih
+Setiabudi,2019-07,Normal,Normal,0.12628067,0.796242,0.07747736,latih
+Mampang Prapatan,2019-07,Normal,Normal,0.08842757,0.75226665,0.1593058,validasi
+Pasar Minggu,2019-07,Normal,Normal,0.11159174,0.7546361,0.13377212,uji
+Kebayoran Lama,2019-07,Normal,Normal,0.10063692,0.76483,0.13453306,latih
+Cilandak,2019-07,Normal,Normal,0.12775476,0.77321786,0.099027365,latih
+Kebayoran Baru,2019-07,Normal,Normal,0.12256207,0.79175746,0.08568041,latih
+Pancoran,2019-07,Normal,Normal,0.044550724,0.48934138,0.4661079,uji
+Jagakarsa,2019-07,Normal,Normal,0.09860397,0.72358626,0.1778097,uji
+Pesanggrahan,2019-07,Normal,Normal,0.07804584,0.7122641,0.20968999,latih
+Matraman,2019-07,Normal,Tinggi,0.033522375,0.32521915,0.64125854,latih
+Pulogadung,2019-07,Normal,Tinggi,0.031964295,0.35961637,0.60841936,latih
+Jatinegara,2019-07,Normal,Tinggi,0.030053962,0.2885826,0.68136346,latih
+Kramatjati,2019-07,Normal,Tinggi,0.029559314,0.2787013,0.6917394,latih
+Pasar Rebo,2019-07,Normal,Tinggi,0.033482414,0.3581971,0.60832053,latih
+Cakung,2019-07,Normal,Normal,0.079757616,0.8092567,0.11098577,latih
+Duren Sawit,2019-07,Normal,Tinggi,0.035886884,0.44303852,0.52107465,validasi
+Makasar,2019-07,Normal,Normal,0.10479973,0.7553319,0.13986833,validasi
+Ciracas,2019-07,Normal,Tinggi,0.04145254,0.4684283,0.49011916,latih
+Cipayung,2019-07,Normal,Normal,0.10846116,0.76096135,0.13057746,latih
+Gambir,2019-08,Normal,Normal,0.22816679,0.72633785,0.0454953,latih
+Sawah Besar,2019-08,Normal,Normal,0.14833196,0.78442216,0.06724593,latih
+Kemayoran,2019-08,Tinggi,Normal,0.03849194,0.5956818,0.36582628,latih
+Senen,2019-08,Normal,Normal,0.059921898,0.79780513,0.14227304,latih
+Cempaka Putih,2019-08,Tinggi,Normal,0.049624823,0.70682734,0.24354781,validasi
+Menteng,2019-08,Normal,Normal,0.14112532,0.8023527,0.05652195,latih
+Tanah Abang,2019-08,Normal,Normal,0.1633566,0.78695565,0.04968774,latih
+Johar Baru,2019-08,Tinggi,Tinggi,0.034496468,0.35344338,0.6120602,latih
+Penjaringan,2019-08,Normal,Normal,0.35430282,0.60062724,0.045069925,uji
+Tanjung Priok,2019-08,Normal,Normal,0.12734164,0.78906155,0.08359683,latih
+Koja,2019-08,Tinggi,Normal,0.06421527,0.78664017,0.14914452,latih
+Cilincing,2019-08,Normal,Normal,0.17778672,0.74651116,0.075702116,latih
+Pademangan,2019-08,Normal,Normal,0.2671763,0.6865482,0.04627558,latih
+Kelapa Gading,2019-08,Normal,Normal,0.27249384,0.6841271,0.04337902,latih
+Cengkareng,2019-08,Normal,Normal,0.11464602,0.8066055,0.07874842,latih
+Grogol Petamburan,2019-08,Normal,Normal,0.07276379,0.8003583,0.12687793,validasi
+Taman Sari,2019-08,Normal,Normal,0.14274165,0.78371483,0.07354349,latih
+Tambora,2019-08,Normal,Normal,0.1290806,0.78486985,0.08604955,latih
+Kebon Jeruk,2019-08,Normal,Normal,0.038903274,0.53753173,0.423565,latih
+Kalideres,2019-08,Normal,Normal,0.18889037,0.755674,0.05543557,latih
+Pal Merah,2019-08,Normal,Normal,0.078430824,0.8171668,0.104402356,latih
+Kembangan,2019-08,Normal,Normal,0.08818893,0.7398867,0.17192441,latih
+Tebet,2019-08,Normal,Tinggi,0.029762696,0.2574659,0.7127714,latih
+Setiabudi,2019-08,Rendah,Normal,0.2035979,0.7479777,0.048424367,latih
+Mampang Prapatan,2019-08,Normal,Normal,0.095513925,0.755031,0.14945504,validasi
+Pasar Minggu,2019-08,Normal,Normal,0.08871245,0.72924155,0.18204597,uji
+Kebayoran Lama,2019-08,Normal,Normal,0.038613435,0.4862795,0.4751071,latih
+Cilandak,2019-08,Normal,Normal,0.12292993,0.7803101,0.09675998,latih
+Kebayoran Baru,2019-08,Normal,Normal,0.123304285,0.788063,0.0886327,latih
+Pancoran,2019-08,Normal,Tinggi,0.037002914,0.4043029,0.5586942,uji
+Jagakarsa,2019-08,Normal,Normal,0.085638404,0.69642675,0.2179348,uji
+Pesanggrahan,2019-08,Normal,Normal,0.042680494,0.5191248,0.4381947,latih
+Matraman,2019-08,Tinggi,Tinggi,0.029925328,0.23324789,0.7368268,latih
+Pulogadung,2019-08,Normal,Normal,0.067688,0.7049449,0.2273671,latih
+Jatinegara,2019-08,Normal,Tinggi,0.030623091,0.2873844,0.68199253,latih
+Kramatjati,2019-08,Tinggi,Tinggi,0.029679397,0.27579647,0.69452417,latih
+Pasar Rebo,2019-08,Tinggi,Tinggi,0.031783137,0.3310537,0.6371631,latih
+Cakung,2019-08,Tinggi,Normal,0.057190288,0.7180006,0.22480905,latih
+Duren Sawit,2019-08,Normal,Normal,0.044105258,0.55538905,0.4005057,validasi
+Makasar,2019-08,Normal,Normal,0.08148429,0.7264673,0.19204842,validasi
+Ciracas,2019-08,Tinggi,Tinggi,0.039783154,0.4450859,0.5151309,latih
+Cipayung,2019-08,Normal,Normal,0.09816199,0.73980016,0.16203785,latih
+Gambir,2019-09,Normal,Normal,0.21334659,0.7410846,0.04556886,latih
+Sawah Besar,2019-09,Normal,Normal,0.19732907,0.7485626,0.054108404,latih
+Kemayoran,2019-09,Normal,Normal,0.06792911,0.79480314,0.13726777,latih
+Senen,2019-09,Normal,Normal,0.04496784,0.7035136,0.2515185,latih
+Cempaka Putih,2019-09,Normal,Normal,0.07770704,0.8145049,0.10778805,validasi
+Menteng,2019-09,Normal,Normal,0.20815104,0.7461541,0.045694795,latih
+Tanah Abang,2019-09,Normal,Normal,0.105703615,0.8000308,0.09426552,latih
+Johar Baru,2019-09,Normal,Normal,0.043490738,0.5505866,0.4059227,latih
+Penjaringan,2019-09,Rendah,Normal,0.3404301,0.61453044,0.04503942,uji
+Tanjung Priok,2019-09,Normal,Normal,0.17264135,0.7664818,0.06087679,latih
+Koja,2019-09,Normal,Normal,0.10804321,0.8075499,0.084406905,latih
+Cilincing,2019-09,Tinggi,Normal,0.19829597,0.737483,0.064221114,latih
+Pademangan,2019-09,Normal,Normal,0.30484834,0.654409,0.0407427,latih
+Kelapa Gading,2019-09,Normal,Normal,0.32045233,0.64027274,0.03927491,latih
+Cengkareng,2019-09,Normal,Normal,0.08213289,0.81631684,0.101550296,latih
+Grogol Petamburan,2019-09,Normal,Normal,0.13657716,0.7922054,0.07121748,validasi
+Taman Sari,2019-09,Normal,Normal,0.14647977,0.7824167,0.07110356,latih
+Tambora,2019-09,Normal,Normal,0.10791594,0.79392487,0.098159164,latih
+Kebon Jeruk,2019-09,Tinggi,Normal,0.03938815,0.56530905,0.39530277,latih
+Kalideres,2019-09,Rendah,Normal,0.11050972,0.81268746,0.076802775,latih
+Pal Merah,2019-09,Tinggi,Tinggi,0.03140196,0.36182985,0.6067682,latih
+Kembangan,2019-09,Tinggi,Normal,0.0838403,0.7305814,0.18557826,latih
+Tebet,2019-09,Tinggi,Tinggi,0.02995662,0.31262344,0.65741986,latih
+Setiabudi,2019-09,Normal,Normal,0.08414589,0.74869335,0.16716081,latih
+Mampang Prapatan,2019-09,Tinggi,Normal,0.06488677,0.6823312,0.25278196,validasi
+Pasar Minggu,2019-09,Tinggi,Normal,0.07162677,0.63727874,0.29109445,uji
+Kebayoran Lama,2019-09,Tinggi,Normal,0.08612523,0.73860145,0.17527334,latih
+Cilandak,2019-09,Tinggi,Normal,0.1005378,0.76083297,0.13862932,latih
+Kebayoran Baru,2019-09,Rendah,Normal,0.11454876,0.78416884,0.10128237,latih
+Pancoran,2019-09,Tinggi,Tinggi,0.033124235,0.3209069,0.64596885,uji
+Jagakarsa,2019-09,Tinggi,Normal,0.061892346,0.5608151,0.3772926,uji
+Pesanggrahan,2019-09,Tinggi,Normal,0.053958632,0.57855487,0.36748654,latih
+Matraman,2019-09,Tinggi,Tinggi,0.031811498,0.2777669,0.6904216,latih
+Pulogadung,2019-09,Tinggi,Tinggi,0.03617996,0.47477853,0.48904145,latih
+Jatinegara,2019-09,Tinggi,Tinggi,0.02935412,0.28080094,0.6898449,latih
+Kramatjati,2019-09,Tinggi,Tinggi,0.028575972,0.2337671,0.73765695,latih
+Pasar Rebo,2019-09,Tinggi,Tinggi,0.032166816,0.3398838,0.6279494,latih
+Cakung,2019-09,Normal,Normal,0.07917718,0.8069872,0.113835655,latih
+Duren Sawit,2019-09,Tinggi,Tinggi,0.03259268,0.3851524,0.5822549,validasi
+Makasar,2019-09,Tinggi,Normal,0.07879955,0.68081385,0.2403867,validasi
+Ciracas,2019-09,Tinggi,Tinggi,0.032214124,0.3118207,0.65596515,latih
+Cipayung,2019-09,Tinggi,Normal,0.09174758,0.70185626,0.20639613,latih
+Gambir,2019-10,Normal,Normal,0.27046612,0.6862575,0.04327637,latih
+Sawah Besar,2019-10,Tinggi,Normal,0.04815203,0.71219504,0.23965295,latih
+Kemayoran,2019-10,Normal,Tinggi,0.0318203,0.40508085,0.5630988,latih
+Senen,2019-10,Normal,Normal,0.05974831,0.77155817,0.16869356,latih
+Cempaka Putih,2019-10,Rendah,Normal,0.2930067,0.66725844,0.039734766,validasi
+Menteng,2019-10,Normal,Normal,0.102716506,0.7921338,0.1051497,latih
+Tanah Abang,2019-10,Rendah,Normal,0.075410135,0.7627833,0.16180657,latih
+Johar Baru,2019-10,Normal,Tinggi,0.033867512,0.46292722,0.50320524,latih
+Penjaringan,2019-10,Rendah,Normal,0.3351705,0.62112075,0.04370876,uji
+Tanjung Priok,2019-10,Normal,Normal,0.07599799,0.80659205,0.11741,latih
+Koja,2019-10,Normal,Normal,0.060983103,0.76933104,0.16968578,latih
+Cilincing,2019-10,Tinggi,Normal,0.06718175,0.6508104,0.2820078,latih
+Pademangan,2019-10,Tinggi,Normal,0.22376291,0.7286078,0.04762926,latih
+Kelapa Gading,2019-10,Normal,Normal,0.13013315,0.8031738,0.06669302,latih
+Cengkareng,2019-10,Normal,Normal,0.048259564,0.72406715,0.22767335,latih
+Grogol Petamburan,2019-10,Normal,Normal,0.059253164,0.7849767,0.15577008,validasi
+Taman Sari,2019-10,Tinggi,Normal,0.060051896,0.74636966,0.19357851,latih
+Tambora,2019-10,Tinggi,Normal,0.058446582,0.72133464,0.22021878,latih
+Kebon Jeruk,2019-10,Rendah,Normal,0.045421455,0.64643127,0.30814725,latih
+Kalideres,2019-10,Normal,Normal,0.09473439,0.80842596,0.09683962,latih
+Pal Merah,2019-10,Normal,Tinggi,0.031293083,0.35835204,0.6103549,latih
+Kembangan,2019-10,Rendah,Normal,0.11175586,0.7901737,0.09807038,latih
+Tebet,2019-10,Normal,Normal,0.055360753,0.6498664,0.29477283,latih
+Setiabudi,2019-10,Normal,Tinggi,0.032783788,0.42104816,0.546168,latih
+Mampang Prapatan,2019-10,Tinggi,Normal,0.0704246,0.7330291,0.19654632,validasi
+Pasar Minggu,2019-10,Tinggi,Normal,0.060574584,0.64728314,0.2921423,uji
+Kebayoran Lama,2019-10,Normal,Normal,0.11321764,0.78039575,0.106386594,latih
+Cilandak,2019-10,Normal,Normal,0.078555204,0.72075397,0.20069088,latih
+Kebayoran Baru,2019-10,Tinggi,Normal,0.131811,0.7741571,0.094031885,latih
+Pancoran,2019-10,Normal,Normal,0.06129358,0.6547888,0.2839176,uji
+Jagakarsa,2019-10,Tinggi,Normal,0.04193294,0.48367736,0.47438964,uji
+Pesanggrahan,2019-10,Normal,Normal,0.098759584,0.75856817,0.1426723,latih
+Matraman,2019-10,Normal,Normal,0.39375824,0.5666698,0.039571907,latih
+Pulogadung,2019-10,Normal,Tinggi,0.029311458,0.29406407,0.6766245,latih
+Jatinegara,2019-10,Tinggi,Tinggi,0.032031413,0.33746532,0.63050324,latih
+Kramatjati,2019-10,Tinggi,Tinggi,0.02800649,0.19611663,0.7758769,latih
+Pasar Rebo,2019-10,Tinggi,Tinggi,0.035609707,0.37073573,0.5936545,latih
+Cakung,2019-10,Tinggi,Tinggi,0.030905988,0.2946845,0.67440957,latih
+Duren Sawit,2019-10,Tinggi,Tinggi,0.028554106,0.2364427,0.7350032,validasi
+Makasar,2019-10,Tinggi,Tinggi,0.032642998,0.2976766,0.66968036,validasi
+Ciracas,2019-10,Tinggi,Tinggi,0.028264757,0.24406148,0.72767377,latih
+Cipayung,2019-10,Normal,Normal,0.0996534,0.7357843,0.16456231,latih
+Gambir,2022-03,Normal,Normal,0.22402437,0.73099846,0.044977177,latih
+Sawah Besar,2022-03,Normal,Normal,0.1742049,0.76634264,0.059452496,latih
+Kemayoran,2022-03,Tinggi,Normal,0.040336914,0.5346837,0.42497942,latih
+Senen,2022-03,Normal,Normal,0.05406543,0.7394047,0.2065299,latih
+Cempaka Putih,2022-03,Tinggi,Normal,0.040446285,0.57621366,0.38334015,validasi
+Menteng,2022-03,Normal,Normal,0.1880779,0.7625049,0.049417242,latih
+Tanah Abang,2022-03,Normal,Normal,0.12939642,0.78774196,0.08286169,latih
+Johar Baru,2022-03,Tinggi,Tinggi,0.037282523,0.35019273,0.6125247,latih
+Penjaringan,2022-03,Rendah,Normal,0.36544767,0.5873839,0.047168363,uji
+Tanjung Priok,2022-03,Normal,Normal,0.1357854,0.783992,0.08022257,latih
+Koja,2022-03,Normal,Normal,0.068881914,0.7634647,0.1676533,latih
+Cilincing,2022-03,Rendah,Normal,0.39916283,0.5538148,0.04702241,latih
+Pademangan,2022-03,Normal,Normal,0.32858598,0.6304583,0.040955774,latih
+Kelapa Gading,2022-03,Normal,Normal,0.2617532,0.6933764,0.04487039,latih
+Cengkareng,2022-03,Normal,Normal,0.07484581,0.79302055,0.13213366,latih
+Grogol Petamburan,2022-03,Normal,Normal,0.12290758,0.79939514,0.077697374,validasi
+Taman Sari,2022-03,Normal,Normal,0.15062457,0.775342,0.074033424,latih
+Tambora,2022-03,Tinggi,Normal,0.08326059,0.76114523,0.15559417,latih
+Kebon Jeruk,2022-03,Normal,Normal,0.039757147,0.57588476,0.38435808,latih
+Kalideres,2022-03,Normal,Normal,0.17816457,0.7673923,0.054443236,latih
+Pal Merah,2022-03,Tinggi,Tinggi,0.03174811,0.33324587,0.63500595,latih
+Kembangan,2022-03,Normal,Normal,0.10245605,0.7468203,0.15072359,latih
+Tebet,2022-03,Tinggi,Tinggi,0.029901376,0.26954266,0.700556,latih
+Setiabudi,2022-03,Normal,Normal,0.11375169,0.79246783,0.09378051,latih
+Mampang Prapatan,2022-03,Normal,Normal,0.075204834,0.7306255,0.19416969,validasi
+Pasar Minggu,2022-03,Normal,Normal,0.087724574,0.6776542,0.23462127,uji
+Kebayoran Lama,2022-03,Tinggi,Normal,0.07668526,0.7023565,0.22095816,latih
+Cilandak,2022-03,Normal,Normal,0.1276357,0.7714938,0.10087043,latih
+Kebayoran Baru,2022-03,Normal,Normal,0.09866689,0.76268995,0.13864315,latih
+Pancoran,2022-03,Tinggi,Tinggi,0.036139566,0.37645623,0.5874042,uji
+Jagakarsa,2022-03,Normal,Normal,0.06444349,0.54179263,0.39376396,uji
+Pesanggrahan,2022-03,Normal,Normal,0.06675768,0.6690526,0.26418978,latih
+Matraman,2022-03,Tinggi,Tinggi,0.034066044,0.26988548,0.6960485,latih
+Pulogadung,2022-03,Tinggi,Tinggi,0.03586408,0.42561176,0.5385241,latih
+Jatinegara,2022-03,Tinggi,Tinggi,0.030341282,0.25992462,0.70973414,latih
+Kramatjati,2022-03,Tinggi,Tinggi,0.02969386,0.21170178,0.75860435,latih
+Pasar Rebo,2022-03,Tinggi,Tinggi,0.03084905,0.2594793,0.7096717,latih
+Cakung,2022-03,Normal,Normal,0.105122305,0.8125543,0.082323454,latih
+Duren Sawit,2022-03,Normal,Tinggi,0.031844918,0.37123132,0.59692377,validasi
+Makasar,2022-03,Normal,Normal,0.12564075,0.71063334,0.16372588,validasi
+Ciracas,2022-03,Tinggi,Tinggi,0.03003771,0.21582636,0.7541359,latih
+Cipayung,2022-03,Normal,Normal,0.105661064,0.6991305,0.19520845,latih
+Gambir,2022-07,Rendah,Normal,0.31727967,0.6365607,0.046159662,latih
+Kemayoran,2022-07,Normal,Normal,0.04732038,0.6543245,0.2983552,latih
+Cempaka Putih,2022-07,Normal,Normal,0.044162,0.68484,0.27099803,validasi
+Tanah Abang,2022-07,Rendah,Normal,0.054611344,0.7186014,0.22678716,latih
+Johar Baru,2022-07,Rendah,Normal,0.046016987,0.6145648,0.33941814,latih
+Penjaringan,2022-07,Normal,Normal,0.3787303,0.58112293,0.040146824,uji
+Tanjung Priok,2022-07,Normal,Normal,0.13452245,0.7860605,0.079417124,latih
+Koja,2022-07,Tinggi,Normal,0.05275818,0.70696443,0.24027742,latih
+Cilincing,2022-07,Rendah,Normal,0.32064506,0.63350576,0.04584918,latih
+Pademangan,2022-07,Rendah,Normal,0.39585218,0.5666054,0.03754248,latih
+Kelapa Gading,2022-07,Normal,Normal,0.2523179,0.70325714,0.04442501,latih
+Cengkareng,2022-07,Tinggi,Normal,0.041745257,0.62142444,0.3368303,latih
+Grogol Petamburan,2022-07,Rendah,Normal,0.18231156,0.7593567,0.058331728,validasi
+Tambora,2022-07,Rendah,Normal,0.13124205,0.77763915,0.0911188,latih
+Kebon Jeruk,2022-07,Normal,Normal,0.04049288,0.6578808,0.30162632,latih
+Kalideres,2022-07,Tinggi,Normal,0.058288295,0.7260124,0.21569927,latih
+Pal Merah,2022-07,Normal,Tinggi,0.03278932,0.39376143,0.57344925,latih
+Kembangan,2022-07,Tinggi,Normal,0.0733493,0.6700638,0.25658697,latih
+Tebet,2022-07,Normal,Tinggi,0.028956914,0.24311697,0.7279261,latih
+Pasar Minggu,2022-07,Normal,Normal,0.043249585,0.50852394,0.44822645,uji
+Kebayoran Lama,2022-07,Rendah,Normal,0.06680665,0.71609896,0.21709436,latih
+Cilandak,2022-07,Rendah,Normal,0.15192324,0.76461446,0.08346237,latih
+Kebayoran Baru,2022-07,Rendah,Normal,0.13714884,0.7880211,0.07483005,latih
+Pancoran,2022-07,Normal,Tinggi,0.03629612,0.41954586,0.54415804,uji
+Jagakarsa,2022-07,Rendah,Normal,0.21816592,0.7127678,0.06906629,uji
+Pesanggrahan,2022-07,Normal,Normal,0.044857886,0.5312283,0.42391384,latih
+Matraman,2022-07,Normal,Tinggi,0.032202717,0.26955563,0.6982417,latih
+Pulogadung,2022-07,Tinggi,Tinggi,0.031260163,0.33039805,0.6383418,latih
+Jatinegara,2022-07,Tinggi,Tinggi,0.028174859,0.21114665,0.7606784,latih
+Kramatjati,2022-07,Normal,Tinggi,0.028204812,0.17824148,0.79355365,latih
+Pasar Rebo,2022-07,Rendah,Normal,0.047950916,0.56617063,0.38587847,latih
+Cakung,2022-07,Tinggi,Normal,0.047994252,0.61255324,0.33945253,latih
+Duren Sawit,2022-07,Tinggi,Tinggi,0.027747221,0.21278185,0.75947094,validasi
+Makasar,2022-07,Rendah,Normal,0.09334563,0.7312431,0.17541128,validasi
+Ciracas,2022-07,Rendah,Tinggi,0.04010687,0.46672103,0.49317205,latih
+Cipayung,2022-07,Normal,Normal,0.101100266,0.74892193,0.14997777,latih
+Gambir,2022-09,Normal,Tinggi,0.029268846,0.3471798,0.62355137,latih
+Sawah Besar,2022-09,Tinggi,Normal,0.05045669,0.7096656,0.23987767,latih
+Kemayoran,2022-09,Tinggi,Normal,0.037134692,0.5869975,0.37586775,latih
+Senen,2022-09,Tinggi,Tinggi,0.02791468,0.20773458,0.7643508,latih
+Cempaka Putih,2022-09,Tinggi,Tinggi,0.02863933,0.22525784,0.7461028,validasi
+Menteng,2022-09,Tinggi,Normal,0.056402814,0.66445863,0.27913857,latih
+Tanah Abang,2022-09,Normal,Normal,0.062028244,0.71793497,0.22003676,latih
+Johar Baru,2022-09,Tinggi,Tinggi,0.028183693,0.17848325,0.79333305,latih
+Penjaringan,2022-09,Normal,Normal,0.20514494,0.7300522,0.06480289,uji
+Tanjung Priok,2022-09,Normal,Normal,0.11198212,0.7993007,0.088717155,latih
+Koja,2022-09,Normal,Normal,0.03684619,0.57085294,0.39230087,latih
+Cilincing,2022-09,Rendah,Normal,0.3961214,0.5660249,0.037853755,latih
+Pademangan,2022-09,Normal,Normal,0.2744846,0.6819589,0.043556552,latih
+Kelapa Gading,2022-09,Normal,Normal,0.09908578,0.7570623,0.14385195,latih
+Grogol Petamburan,2022-09,Normal,Normal,0.04434003,0.64937013,0.3062898,validasi
+Taman Sari,2022-09,Normal,Normal,0.12244175,0.7881867,0.089371495,latih
+Tambora,2022-09,Normal,Normal,0.043408826,0.59982413,0.35676706,latih
+Kalideres,2022-09,Rendah,Normal,0.4445869,0.52001244,0.03540064,latih
+Pal Merah,2022-09,Normal,Normal,0.05273975,0.71718913,0.23007107,latih
+Tebet,2022-09,Tinggi,Tinggi,0.041435413,0.43139222,0.52717227,latih
+Setiabudi,2022-09,Normal,Normal,0.080144785,0.70036453,0.21949072,latih
+Mampang Prapatan,2022-09,Normal,Tinggi,0.028604267,0.18365079,0.787745,validasi
+Kebayoran Lama,2022-09,Normal,Normal,0.12599374,0.7764573,0.09754893,latih
+Cilandak,2022-09,Rendah,Normal,0.101787455,0.7537907,0.14442186,latih
+Kebayoran Baru,2022-09,Normal,Normal,0.17537414,0.76906395,0.05556196,latih
+Pesanggrahan,2022-09,Normal,Normal,0.08991957,0.7490977,0.1609827,latih
+Matraman,2022-09,Tinggi,Tinggi,0.03078831,0.29136774,0.677844,latih
+Pulogadung,2022-09,Normal,Normal,0.08859449,0.7257823,0.18562326,latih
+Cakung,2022-09,Normal,Normal,0.19448723,0.7570871,0.048425566,latih
+Gambir,2022-11,Normal,Normal,0.23044851,0.72472495,0.044826515,latih
+Sawah Besar,2022-11,Normal,Normal,0.15286857,0.7825982,0.06453328,latih
+Kemayoran,2022-11,Tinggi,Normal,0.0349688,0.5025109,0.4625202,latih
+Senen,2022-11,Tinggi,Normal,0.055154327,0.7490775,0.19576819,latih
+Cempaka Putih,2022-11,Tinggi,Normal,0.041442916,0.6037928,0.3547643,validasi
+Menteng,2022-11,Tinggi,Normal,0.130151,0.7869083,0.08294064,latih
+Tanah Abang,2022-11,Tinggi,Normal,0.12206929,0.7879894,0.08994136,latih
+Johar Baru,2022-11,Tinggi,Tinggi,0.03397275,0.2881511,0.6778762,latih
+Penjaringan,2022-11,Rendah,Normal,0.35475007,0.5995654,0.04568461,uji
+Tanjung Priok,2022-11,Tinggi,Normal,0.16005653,0.7740136,0.065929875,latih
+Koja,2022-11,Tinggi,Normal,0.05764964,0.73098403,0.21136639,latih
+Cilincing,2022-11,Rendah,Normal,0.33622602,0.61589146,0.047882557,latih
+Pademangan,2022-11,Normal,Normal,0.31487083,0.6441349,0.04099428,latih
+Kelapa Gading,2022-11,Normal,Normal,0.24290775,0.7140991,0.042993195,latih
+Cengkareng,2022-11,Normal,Normal,0.1193883,0.8084515,0.07216023,latih
+Grogol Petamburan,2022-11,Tinggi,Normal,0.121492386,0.80098385,0.0775238,validasi
+Taman Sari,2022-11,Normal,Normal,0.12211637,0.78526616,0.09261754,latih
+Tambora,2022-11,Tinggi,Normal,0.081164904,0.7527524,0.16608272,latih
+Kebon Jeruk,2022-11,Tinggi,Normal,0.035440966,0.50375664,0.46080238,latih
+Kalideres,2022-11,Normal,Normal,0.2272409,0.7197158,0.05304335,latih
+Pal Merah,2022-11,Tinggi,Tinggi,0.032325678,0.38753587,0.58013844,latih
+Kembangan,2022-11,Normal,Normal,0.096972995,0.7520694,0.15095755,latih
+Tebet,2022-11,Tinggi,Tinggi,0.028986897,0.23788805,0.73312503,latih
+Setiabudi,2022-11,Tinggi,Normal,0.08676734,0.73075145,0.18248124,latih
+Mampang Prapatan,2022-11,Tinggi,Normal,0.05387358,0.6221561,0.32397038,validasi
+Pasar Minggu,2022-11,Tinggi,Normal,0.08100079,0.6785848,0.24041438,uji
+Kebayoran Lama,2022-11,Tinggi,Normal,0.061123606,0.6412997,0.29757664,latih
+Cilandak,2022-11,Tinggi,Normal,0.09389187,0.75761765,0.14849044,latih
+Kebayoran Baru,2022-11,Tinggi,Normal,0.10943388,0.7661735,0.12439268,latih
+Pancoran,2022-11,Tinggi,Tinggi,0.03035402,0.28908524,0.68056077,uji
+Jagakarsa,2022-11,Rendah,Normal,0.06352214,0.5864748,0.35000312,uji
+Pesanggrahan,2022-11,Tinggi,Normal,0.054219536,0.6103869,0.33539367,latih
+Matraman,2022-11,Tinggi,Tinggi,0.032347783,0.22722135,0.7404309,latih
+Pulogadung,2022-11,Tinggi,Tinggi,0.034873135,0.4210444,0.54408246,latih
+Jatinegara,2022-11,Tinggi,Tinggi,0.028362634,0.23240837,0.739229,latih
+Kramatjati,2022-11,Tinggi,Tinggi,0.028621782,0.20282096,0.76855725,latih
+Pasar Rebo,2022-11,Rendah,Normal,0.041570846,0.48647502,0.47195414,latih
+Cakung,2022-11,Normal,Normal,0.106619835,0.8151107,0.078269504,latih
+Duren Sawit,2022-11,Normal,Tinggi,0.035021834,0.42064443,0.54433376,validasi
+Makasar,2022-11,Tinggi,Normal,0.13205335,0.7355143,0.13243245,validasi
+Ciracas,2022-11,Rendah,Normal,0.09709992,0.7550962,0.14780396,latih
+Cipayung,2022-11,Rendah,Normal,0.14493884,0.7658181,0.089243,latih
+Gambir,2025-05,Normal,Normal,0.15971784,0.7783495,0.061932664,latih
+Sawah Besar,2025-05,Normal,Normal,0.16758737,0.76895756,0.06345507,latih
+Kemayoran,2025-05,Tinggi,Normal,0.03722704,0.55079055,0.4119825,latih
+Senen,2025-05,Tinggi,Normal,0.03552051,0.50809747,0.45638204,latih
+Cempaka Putih,2025-05,Tinggi,Tinggi,0.032305505,0.36696255,0.60073197,validasi
+Menteng,2025-05,Normal,Normal,0.23017007,0.72565836,0.044171553,latih
+Tanah Abang,2025-05,Normal,Normal,0.26539272,0.69171214,0.042895164,latih
+Johar Baru,2025-05,Tinggi,Tinggi,0.032743562,0.24821585,0.7190406,latih
+Penjaringan,2025-05,Normal,Normal,0.38273093,0.57137126,0.045897856,uji
+Tanjung Priok,2025-05,Tinggi,Normal,0.11619075,0.793685,0.090124175,latih
+Koja,2025-05,Tinggi,Tinggi,0.029157331,0.2497517,0.7210909,latih
+Cilincing,2025-05,Rendah,Normal,0.3129483,0.6352385,0.05181314,latih
+Pademangan,2025-05,Normal,Normal,0.34349906,0.61734015,0.039160777,latih
+Kelapa Gading,2025-05,Tinggi,Normal,0.24149834,0.7139547,0.044546932,latih
+Cengkareng,2025-05,Normal,Normal,0.064605616,0.80447286,0.13092151,latih
+Grogol Petamburan,2025-05,Normal,Normal,0.14750834,0.78569573,0.066795915,validasi
+Taman Sari,2025-05,Normal,Normal,0.19173534,0.744008,0.06425661,latih
+Tambora,2025-05,Normal,Normal,0.11957821,0.7911968,0.08922494,latih
+Kebon Jeruk,2025-05,Normal,Normal,0.03683515,0.5202,0.4429648,latih
+Kalideres,2025-05,Normal,Normal,0.20404933,0.747884,0.0480667,latih
+Pal Merah,2025-05,Tinggi,Tinggi,0.030633854,0.29149672,0.67786944,latih
+Kembangan,2025-05,Normal,Normal,0.11197049,0.76469374,0.123335734,latih
+Tebet,2025-05,Tinggi,Tinggi,0.03020594,0.30381066,0.66598344,latih
+Setiabudi,2025-05,Normal,Normal,0.21870731,0.7367295,0.044563208,latih
+Mampang Prapatan,2025-05,Normal,Normal,0.07862721,0.72300076,0.19837199,validasi
+Pasar Minggu,2025-05,Normal,Normal,0.09259215,0.71517825,0.19222958,uji
+Kebayoran Lama,2025-05,Normal,Normal,0.09450519,0.7350303,0.17046456,latih
+Cilandak,2025-05,Normal,Normal,0.13135628,0.76782644,0.10081733,latih
+Kebayoran Baru,2025-05,Normal,Normal,0.1010434,0.7784035,0.120553076,latih
+Pancoran,2025-05,Normal,Normal,0.039356917,0.4886034,0.4720397,uji
+Jagakarsa,2025-05,Tinggi,Normal,0.05704678,0.5508043,0.39214885,uji
+Pesanggrahan,2025-05,Normal,Normal,0.0642772,0.664963,0.27075976,latih
+Matraman,2025-05,Tinggi,Tinggi,0.030366777,0.2262223,0.74341094,latih
+Pulogadung,2025-05,Tinggi,Tinggi,0.038753632,0.47854525,0.48270112,latih
+Jatinegara,2025-05,Tinggi,Tinggi,0.02970227,0.29919916,0.67109853,latih
+Kramatjati,2025-05,Tinggi,Tinggi,0.0282092,0.18174805,0.7900428,latih
+Pasar Rebo,2025-05,Tinggi,Tinggi,0.030003557,0.21434668,0.7556498,latih
+Cakung,2025-05,Tinggi,Normal,0.07801254,0.7587666,0.16322082,latih
+Duren Sawit,2025-05,Tinggi,Tinggi,0.03701732,0.4771688,0.48581392,validasi
+Makasar,2025-05,Normal,Normal,0.11081272,0.7072703,0.18191695,validasi
+Ciracas,2025-05,Tinggi,Tinggi,0.029064639,0.1947373,0.776198,latih
+Cipayung,2025-05,Normal,Normal,0.11916187,0.7465756,0.13426253,latih
+Gambir,2025-06,Normal,Normal,0.1530041,0.7883927,0.05860315,latih
+Sawah Besar,2025-06,Normal,Normal,0.23521283,0.7211353,0.043651804,latih
+Kemayoran,2025-06,Rendah,Tinggi,0.035766397,0.30928206,0.6549516,latih
+Senen,2025-06,Normal,Normal,0.037002236,0.5721088,0.39088896,latih
+Cempaka Putih,2025-06,Rendah,Normal,0.22753511,0.72515285,0.047312044,validasi
+Menteng,2025-06,Normal,Normal,0.17825598,0.76947254,0.05227156,latih
+Tanah Abang,2025-06,Normal,Normal,0.15469632,0.7874098,0.05789386,latih
+Johar Baru,2025-06,Normal,Tinggi,0.03891564,0.32614526,0.63493913,latih
+Penjaringan,2025-06,Normal,Normal,0.39750126,0.5608704,0.04162833,uji
+Tanjung Priok,2025-06,Normal,Normal,0.18744877,0.7490525,0.06349863,latih
+Koja,2025-06,Normal,Normal,0.22538829,0.72183704,0.0527747,latih
+Cilincing,2025-06,Rendah,Normal,0.39091676,0.567319,0.04176421,latih
+Pademangan,2025-06,Normal,Normal,0.36366534,0.5984524,0.037882295,latih
+Kelapa Gading,2025-06,Normal,Normal,0.21146643,0.74268126,0.045852326,latih
+Cengkareng,2025-06,Normal,Normal,0.06048751,0.7853193,0.15419324,latih
+Grogol Petamburan,2025-06,Tinggi,Normal,0.062309925,0.77444905,0.16324107,validasi
+Taman Sari,2025-06,Normal,Normal,0.12483556,0.7826918,0.09247269,latih
+Tambora,2025-06,Normal,Normal,0.088262856,0.77268904,0.13904817,latih
+Kebon Jeruk,2025-06,Tinggi,Tinggi,0.03216243,0.4033709,0.56446666,latih
+Kalideres,2025-06,Normal,Normal,0.22206879,0.7326275,0.04530376,latih
+Pal Merah,2025-06,Tinggi,Tinggi,0.02956769,0.28212333,0.68830895,latih
+Kembangan,2025-06,Normal,Normal,0.09807884,0.73889726,0.16302392,latih
+Tebet,2025-06,Tinggi,Tinggi,0.028105497,0.23920424,0.7326903,latih
+Setiabudi,2025-06,Normal,Normal,0.10921489,0.7853096,0.10547548,latih
+Mampang Prapatan,2025-06,Normal,Normal,0.05775247,0.642197,0.30005044,validasi
+Pasar Minggu,2025-06,Normal,Normal,0.08271135,0.7172048,0.20008382,uji
+Kebayoran Lama,2025-06,Normal,Normal,0.09710065,0.7512888,0.15161064,latih
+Cilandak,2025-06,Normal,Normal,0.13038932,0.7660833,0.10352743,latih
+Kebayoran Baru,2025-06,Normal,Normal,0.12164435,0.7634532,0.11490246,latih
+Pancoran,2025-06,Tinggi,Tinggi,0.03599848,0.42541954,0.538582,uji
+Jagakarsa,2025-06,Normal,Normal,0.07373133,0.6867763,0.23949248,uji
+Pesanggrahan,2025-06,Normal,Normal,0.07049032,0.68640333,0.2431063,latih
+Matraman,2025-06,Tinggi,Tinggi,0.029228715,0.19263823,0.77813303,latih
+Pulogadung,2025-06,Tinggi,Normal,0.039760005,0.5539527,0.40628728,latih
+Jatinegara,2025-06,Tinggi,Tinggi,0.028931439,0.22303987,0.7480287,latih
+Kramatjati,2025-06,Tinggi,Tinggi,0.028485041,0.17927209,0.7922428,latih
+Pasar Rebo,2025-06,Tinggi,Tinggi,0.02960798,0.21179393,0.7585981,latih
+Cakung,2025-06,Tinggi,Normal,0.10762039,0.7884577,0.10392191,latih
+Duren Sawit,2025-06,Normal,Tinggi,0.030228237,0.30838254,0.66138923,validasi
+Makasar,2025-06,Normal,Normal,0.119803056,0.75453234,0.1256646,validasi
+Ciracas,2025-06,Tinggi,Tinggi,0.030213283,0.2650407,0.70474607,latih
+Cipayung,2025-06,Normal,Normal,0.1085302,0.7534172,0.1380526,latih
+Gambir,2025-07,Normal,Normal,0.25275984,0.704883,0.042357117,latih
+Sawah Besar,2025-07,Normal,Normal,0.19640626,0.75017136,0.05342236,latih
+Kemayoran,2025-07,Tinggi,Tinggi,0.03367722,0.41977924,0.54654354,latih
+Senen,2025-07,Normal,Normal,0.03710744,0.56220114,0.40069148,latih
+Cempaka Putih,2025-07,Tinggi,Normal,0.037956383,0.5774242,0.3846194,validasi
+Menteng,2025-07,Normal,Normal,0.247693,0.7088643,0.04344273,latih
+Tanah Abang,2025-07,Normal,Normal,0.12658685,0.8028017,0.070611395,latih
+Johar Baru,2025-07,Tinggi,Tinggi,0.033240847,0.25160033,0.71515876,latih
+Penjaringan,2025-07,Normal,Normal,0.39734247,0.55997074,0.042686798,uji
+Tanjung Priok,2025-07,Normal,Normal,0.11593438,0.79376763,0.09029795,latih
+Koja,2025-07,Tinggi,Tinggi,0.03473838,0.4655813,0.4996803,latih
+Cilincing,2025-07,Rendah,Normal,0.28484803,0.66097534,0.05417661,latih
+Pademangan,2025-07,Normal,Normal,0.32170078,0.63745385,0.040845353,latih
+Kelapa Gading,2025-07,Normal,Normal,0.26588055,0.69146353,0.042655893,latih
+Cengkareng,2025-07,Normal,Normal,0.08818393,0.8236863,0.08812983,latih
+Grogol Petamburan,2025-07,Normal,Normal,0.13449895,0.7960683,0.06943272,validasi
+Taman Sari,2025-07,Normal,Normal,0.13573945,0.7826682,0.08159242,latih
+Tambora,2025-07,Normal,Normal,0.09134599,0.7823873,0.1262667,latih
+Kebon Jeruk,2025-07,Normal,Normal,0.0397721,0.6050527,0.35517517,latih
+Kalideres,2025-07,Normal,Normal,0.20159803,0.75040686,0.047995105,latih
+Pal Merah,2025-07,Normal,Tinggi,0.030249268,0.314943,0.65480775,latih
+Kembangan,2025-07,Normal,Normal,0.102902204,0.7684343,0.12866355,latih
+Tebet,2025-07,Tinggi,Tinggi,0.028901596,0.2531143,0.7179841,latih
+Setiabudi,2025-07,Normal,Normal,0.15496904,0.78915876,0.055872146,latih
+Mampang Prapatan,2025-07,Normal,Normal,0.060361598,0.65936583,0.28027257,validasi
+Pasar Minggu,2025-07,Normal,Normal,0.08513916,0.7180337,0.19682711,uji
+Kebayoran Lama,2025-07,Normal,Normal,0.100180045,0.7635289,0.136291,latih
+Cilandak,2025-07,Normal,Normal,0.12719016,0.77526116,0.09754863,latih
+Kebayoran Baru,2025-07,Normal,Normal,0.12298642,0.7768872,0.10012637,latih
+Pancoran,2025-07,Normal,Tinggi,0.037971664,0.4583203,0.50370806,uji
+Jagakarsa,2025-07,Normal,Normal,0.08844774,0.7257862,0.18576607,uji
+Pesanggrahan,2025-07,Normal,Normal,0.08726925,0.73784494,0.17488575,latih
+Matraman,2025-07,Tinggi,Tinggi,0.03314733,0.23004559,0.7368071,latih
+Pulogadung,2025-07,Normal,Normal,0.044183753,0.58702487,0.36879134,latih
+Jatinegara,2025-07,Tinggi,Tinggi,0.02854881,0.20787002,0.76358116,latih
+Kramatjati,2025-07,Tinggi,Tinggi,0.028312538,0.19929865,0.7723888,latih
+Pasar Rebo,2025-07,Normal,Tinggi,0.033616625,0.3556119,0.6107714,latih
+Cakung,2025-07,Normal,Normal,0.085622855,0.7920247,0.12235249,latih
+Duren Sawit,2025-07,Tinggi,Tinggi,0.03038695,0.33004132,0.6395718,validasi
+Makasar,2025-07,Normal,Normal,0.102810286,0.7133734,0.18381633,validasi
+Ciracas,2025-07,Normal,Tinggi,0.032418467,0.33092818,0.63665336,latih
+Cipayung,2025-07,Normal,Normal,0.11162317,0.7405069,0.14786999,latih
+Gambir,2025-08,Normal,Normal,0.24952953,0.70699453,0.04347592,latih
+Sawah Besar,2025-08,Normal,Normal,0.14610611,0.78836864,0.06552525,latih
+Kemayoran,2025-08,Tinggi,Normal,0.03636517,0.52435833,0.43927652,latih
+Senen,2025-08,Normal,Normal,0.040846206,0.62217593,0.33697778,latih
+Cempaka Putih,2025-08,Tinggi,Normal,0.035147864,0.4970908,0.46776143,validasi
+Menteng,2025-08,Normal,Normal,0.19400649,0.7570131,0.048980433,latih
+Tanah Abang,2025-08,Normal,Normal,0.15138066,0.7841053,0.06451406,latih
+Johar Baru,2025-08,Tinggi,Tinggi,0.033092123,0.29259756,0.6743103,latih
+Penjaringan,2025-08,Normal,Normal,0.3739981,0.57950616,0.04649577,uji
+Tanjung Priok,2025-08,Normal,Normal,0.118214585,0.7929553,0.088830136,latih
+Koja,2025-08,Tinggi,Normal,0.054916106,0.720994,0.22408989,latih
+Cilincing,2025-08,Rendah,Normal,0.34792298,0.60636526,0.045711774,latih
+Pademangan,2025-08,Normal,Normal,0.29995847,0.65505874,0.044982858,latih
+Kelapa Gading,2025-08,Normal,Normal,0.24260955,0.71034926,0.04704126,latih
+Cengkareng,2025-08,Normal,Normal,0.10442164,0.81820786,0.077370584,latih
+Grogol Petamburan,2025-08,Normal,Normal,0.1303442,0.7929926,0.076663174,validasi
+Taman Sari,2025-08,Normal,Normal,0.1579605,0.77076554,0.07127403,latih
+Tambora,2025-08,Normal,Normal,0.09095385,0.7727878,0.1362583,latih
+Kebon Jeruk,2025-08,Normal,Normal,0.04950605,0.73533773,0.21515617,latih
+Kalideres,2025-08,Normal,Normal,0.22269398,0.7303985,0.046907537,latih
+Pal Merah,2025-08,Tinggi,Tinggi,0.0329829,0.4313159,0.53570116,latih
+Kembangan,2025-08,Normal,Normal,0.11386232,0.7820975,0.104040265,latih
+Tebet,2025-08,Normal,Tinggi,0.030037306,0.29707953,0.67288315,latih
+Setiabudi,2025-08,Normal,Normal,0.14285362,0.79194236,0.065204,latih
+Mampang Prapatan,2025-08,Normal,Normal,0.07318256,0.7184835,0.20833398,validasi
+Pasar Minggu,2025-08,Tinggi,Normal,0.08281822,0.69282824,0.22435355,uji
+Kebayoran Lama,2025-08,Normal,Normal,0.095810644,0.7571268,0.14706245,latih
+Cilandak,2025-08,Normal,Normal,0.124032706,0.7743279,0.101639435,latih
+Kebayoran Baru,2025-08,Normal,Normal,0.13773003,0.77961224,0.0826577,latih
+Pancoran,2025-08,Tinggi,Tinggi,0.039550424,0.47712612,0.48332343,uji
+Jagakarsa,2025-08,Normal,Normal,0.07080912,0.62412244,0.30506846,uji
+Pesanggrahan,2025-08,Tinggi,Normal,0.0651608,0.6701797,0.26465946,latih
+Matraman,2025-08,Tinggi,Tinggi,0.03142594,0.21255036,0.75602365,latih
+Pulogadung,2025-08,Normal,Tinggi,0.03575494,0.37016612,0.59407896,latih
+Jatinegara,2025-08,Tinggi,Tinggi,0.028995916,0.2227462,0.7482579,latih
+Kramatjati,2025-08,Tinggi,Tinggi,0.027629752,0.18225034,0.7901199,latih
+Pasar Rebo,2025-08,Tinggi,Tinggi,0.029865094,0.23243989,0.737695,latih
+Cakung,2025-08,Normal,Normal,0.08307322,0.78597635,0.13095045,latih
+Duren Sawit,2025-08,Normal,Tinggi,0.028860895,0.24225336,0.72888577,validasi
+Makasar,2025-08,Normal,Normal,0.12924124,0.7408887,0.12987006,validasi
+Ciracas,2025-08,Tinggi,Tinggi,0.029389873,0.21765819,0.7529519,latih
+Cipayung,2025-08,Normal,Normal,0.112662874,0.7377457,0.14959143,latih
+Gambir,2025-09,Normal,Normal,0.09772754,0.815532,0.08674046,latih
+Sawah Besar,2025-09,Normal,Normal,0.14789744,0.789498,0.06260461,latih
+Kemayoran,2025-09,Normal,Normal,0.04952847,0.713462,0.23700951,latih
+Senen,2025-09,Normal,Normal,0.039461456,0.50597167,0.4545668,latih
+Cempaka Putih,2025-09,Normal,Normal,0.03737962,0.54171735,0.4209031,validasi
+Menteng,2025-09,Rendah,Normal,0.359783,0.5982468,0.041970145,latih
+Tanah Abang,2025-09,Rendah,Normal,0.16020794,0.7725914,0.067200765,latih
+Johar Baru,2025-09,Normal,Tinggi,0.03638862,0.42332682,0.5402845,latih
+Penjaringan,2025-09,Normal,Normal,0.35739467,0.5976793,0.044926,uji
+Tanjung Priok,2025-09,Normal,Normal,0.0976781,0.8118286,0.09049329,latih
+Koja,2025-09,Normal,Normal,0.03526716,0.542738,0.4219948,latih
+Cilincing,2025-09,Rendah,Normal,0.2243959,0.72450423,0.051099814,latih
+Pademangan,2025-09,Normal,Normal,0.29105136,0.6678244,0.041124243,latih
+Kelapa Gading,2025-09,Normal,Normal,0.16570619,0.781469,0.05282477,latih
+Cengkareng,2025-09,Tinggi,Normal,0.123786524,0.81143415,0.06477932,latih
+Grogol Petamburan,2025-09,Normal,Tinggi,0.033239003,0.44004664,0.5267144,validasi
+Taman Sari,2025-09,Normal,Normal,0.11104445,0.8010266,0.087929025,latih
+Tambora,2025-09,Normal,Normal,0.100441515,0.79626364,0.10329478,latih
+Kebon Jeruk,2025-09,Tinggi,Tinggi,0.032138668,0.38921866,0.57864267,latih
+Kalideres,2025-09,Tinggi,Normal,0.2200417,0.7312501,0.048708178,latih
+Pal Merah,2025-09,Normal,Normal,0.074974865,0.77597004,0.14905506,latih
+Kembangan,2025-09,Normal,Normal,0.085935175,0.71798927,0.19607563,latih
+Setiabudi,2025-09,Rendah,Normal,0.3945159,0.56925994,0.036224123,latih
+Mampang Prapatan,2025-09,Normal,Normal,0.14213769,0.77671164,0.08115063,validasi
+Pasar Minggu,2025-09,Normal,Normal,0.07847804,0.7006893,0.22083265,uji
+Kebayoran Lama,2025-09,Normal,Tinggi,0.038166538,0.45367932,0.50815415,latih
+Cilandak,2025-09,Normal,Normal,0.08563878,0.7337149,0.18064639,latih
+Kebayoran Baru,2025-09,Normal,Tinggi,0.02945074,0.2820981,0.6884512,latih
+Pancoran,2025-09,Normal,Normal,0.058674518,0.6383465,0.30297893,uji
+Jagakarsa,2025-09,Tinggi,Normal,0.053429488,0.5410002,0.40557027,uji
+Pesanggrahan,2025-09,Tinggi,Normal,0.051703382,0.5877772,0.36051944,latih
+Matraman,2025-09,Normal,Tinggi,0.031064324,0.22082575,0.74811,latih
+Pulogadung,2025-09,Normal,Normal,0.12545255,0.77608913,0.09845834,latih
+Jatinegara,2025-09,Rendah,Tinggi,0.030459272,0.2624647,0.707076,latih
+Kramatjati,2025-09,Tinggi,Tinggi,0.028124092,0.1791973,0.79267853,latih
+Pasar Rebo,2025-09,Tinggi,Tinggi,0.028852433,0.19488174,0.7762658,latih
+Cakung,2025-09,Normal,Normal,0.09798322,0.78143644,0.120580256,latih
+Duren Sawit,2025-09,Normal,Tinggi,0.03114433,0.35066015,0.61819553,validasi
+Makasar,2025-09,Normal,Normal,0.09200399,0.7384266,0.1695693,validasi
+Ciracas,2025-09,Tinggi,Tinggi,0.03338492,0.2951858,0.6714293,latih
+Cipayung,2025-09,Tinggi,Normal,0.103688695,0.7393819,0.1569294,latih
+Gambir,2025-12,Normal,Normal,0.28191882,0.6768229,0.04125831,latih
+Sawah Besar,2025-12,Normal,Normal,0.32880944,0.630052,0.041138545,latih
+Kemayoran,2025-12,Tinggi,Tinggi,0.032917112,0.46075687,0.506326,latih
+Senen,2025-12,Tinggi,Normal,0.036178753,0.5607728,0.40304855,latih
+Cempaka Putih,2025-12,Tinggi,Tinggi,0.031713508,0.387513,0.5807735,validasi
+Menteng,2025-12,Tinggi,Normal,0.09606299,0.78152585,0.12241115,latih
+Tanah Abang,2025-12,Tinggi,Normal,0.14025573,0.7873491,0.072395176,latih
+Johar Baru,2025-12,Tinggi,Tinggi,0.03007346,0.28226227,0.68766433,latih
+Penjaringan,2025-12,Rendah,Normal,0.40896448,0.5531641,0.037871387,uji
+Tanjung Priok,2025-12,Rendah,Normal,0.1847769,0.75958323,0.05563985,latih
+Koja,2025-12,Rendah,Normal,0.2459183,0.7042092,0.04987248,latih
+Cilincing,2025-12,Rendah,Normal,0.27370664,0.6829316,0.043361768,latih
+Pademangan,2025-12,Rendah,Normal,0.39600787,0.5672829,0.0367092,latih
+Kelapa Gading,2025-12,Rendah,Normal,0.22256272,0.7325345,0.044902734,latih
+Cengkareng,2025-12,Normal,Normal,0.07138517,0.80219257,0.12642224,latih
+Grogol Petamburan,2025-12,Tinggi,Normal,0.16221319,0.77471304,0.0630738,validasi
+Taman Sari,2025-12,Normal,Normal,0.19966422,0.7362196,0.06411625,latih
+Tambora,2025-12,Tinggi,Normal,0.118110456,0.7728619,0.109027624,latih
+Kebon Jeruk,2025-12,Tinggi,Normal,0.07569289,0.8241493,0.10015783,latih
+Kalideres,2025-12,Rendah,Normal,0.2237528,0.7305183,0.045728855,latih
+Pal Merah,2025-12,Normal,Tinggi,0.03477811,0.42727086,0.5379511,latih
+Kembangan,2025-12,Rendah,Normal,0.11265648,0.7761269,0.11121667,latih
+Tebet,2025-12,Normal,Tinggi,0.03533997,0.45908803,0.50557196,latih
+Setiabudi,2025-12,Tinggi,Normal,0.07953988,0.71577156,0.20468855,latih
+Mampang Prapatan,2025-12,Tinggi,Normal,0.0392664,0.48767728,0.47305635,validasi
+Pasar Minggu,2025-12,Tinggi,Normal,0.054708324,0.58335376,0.36193788,uji
+Kebayoran Lama,2025-12,Tinggi,Normal,0.07392514,0.6965993,0.22947563,latih
+Cilandak,2025-12,Tinggi,Normal,0.078942135,0.7160231,0.20503476,latih
+Kebayoran Baru,2025-12,Tinggi,Normal,0.087905206,0.7307155,0.18137927,latih
+Pancoran,2025-12,Tinggi,Tinggi,0.033976324,0.40717095,0.5588527,uji
+Jagakarsa,2025-12,Rendah,Normal,0.055203043,0.5863868,0.35841012,uji
+Pesanggrahan,2025-12,Tinggi,Normal,0.079667136,0.7250729,0.19526,latih
+Matraman,2025-12,Tinggi,Tinggi,0.029485682,0.1864356,0.7840787,latih
+Pulogadung,2025-12,Tinggi,Tinggi,0.03372944,0.3333158,0.6329547,latih
+Jatinegara,2025-12,Tinggi,Tinggi,0.02770996,0.1949363,0.77735376,latih
+Kramatjati,2025-12,Tinggi,Tinggi,0.027833814,0.18682769,0.7853386,latih
+Pasar Rebo,2025-12,Tinggi,Tinggi,0.02858475,0.18601026,0.78540504,latih
+Cakung,2025-12,Tinggi,Normal,0.05942019,0.7025837,0.23799612,latih
+Duren Sawit,2025-12,Tinggi,Tinggi,0.028461026,0.22225733,0.74928164,validasi
+Makasar,2025-12,Rendah,Normal,0.11060006,0.75211024,0.13728969,validasi
+Ciracas,2025-12,Tinggi,Tinggi,0.028208116,0.19413324,0.7776586,latih
+Cipayung,2025-12,Rendah,Normal,0.07461464,0.70197827,0.22340709,latih

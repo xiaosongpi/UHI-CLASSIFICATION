@@ -1,0 +1,16 @@
+kasus,model,akurasi_rata,akurasi_std,f1_rata,f1_std,lebih_baik_dari_tebak_periode
+1_global,a_tebak_mayoritas,0.4821,0.0132,0.2168,0.004,-0.3138
+1_global,b_tebak_dari_periode,0.7959,0.0228,0.7936,0.0268,0.0
+1_global,c_random_forest,0.7197,0.03,0.6898,0.0368,-0.0762
+1_global,d_random_forest_plus_bulan,0.7827,0.0252,0.769,0.028,-0.0132
+1_global,e_ft_transformer,0.7798,0.0357,0.7674,0.0388,-0.0161
+2_normalisasi,a_tebak_mayoritas,0.5461,0.1062,0.2337,0.0322,-0.04
+2_normalisasi,b_tebak_dari_periode,0.5861,0.0845,0.4776,0.1113,0.0
+2_normalisasi,c_random_forest,0.6596,0.0718,0.5667,0.038,0.0735
+2_normalisasi,d_random_forest_plus_bulan,0.6722,0.0812,0.5978,0.0601,0.0861
+2_normalisasi,e_ft_transformer,0.6665,0.1128,0.5835,0.0956,0.0804
+3_per_periode,a_tebak_mayoritas,0.5003,0.0907,0.2209,0.029,-0.0137
+3_per_periode,b_tebak_dari_periode,0.514,0.081,0.4649,0.0924,0.0
+3_per_periode,c_random_forest,0.6655,0.0382,0.6259,0.0395,0.1515
+3_per_periode,d_random_forest_plus_bulan,0.6792,0.06,0.6382,0.0631,0.1652
+3_per_periode,e_ft_transformer,0.7009,0.0669,0.6477,0.0823,0.1869
