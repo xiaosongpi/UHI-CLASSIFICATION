@@ -13,10 +13,14 @@ def handle_recovery_code():
     cookie = get_cookie()
     verifier = cookie.get("cv")
 
-    # cookie kadang baru terbaca di run kedua
-    if not verifier and not st.session_state.get("cv_retry"):
-        st.session_state["cv_retry"] = True
-        time.sleep(0.5)
+    if not verifier:
+        st.session_state["page"] = "login"
+        st.session_state["auth_error"] = (
+            "Verifier tidak ditemukan. Buka link di browser yang sama "
+            "dengan yang dipakai meminta reset, lalu minta email baru."
+        )
+        st.session_state["open_dialog"] = True
+        st.query_params.clear()
         st.rerun()
 
     try:

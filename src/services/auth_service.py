@@ -154,8 +154,8 @@ def reset_password(email):
 
     verifier = sb.auth._storage.get_item(f"{sb.auth._storage_key}-code-verifier")
     if verifier:
-        get_cookie().set("cv", verifier, max_age=3600)
-
+        get_cookie().set("cv", verifier, max_age=3600, same_site="lax")
+        
 def update_password(password, password_confirm):
     if not password:
         raise ValueError("Password tidak boleh kosong")
