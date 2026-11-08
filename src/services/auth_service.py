@@ -149,7 +149,7 @@ def reset_password(email):
     get_supabase().auth.reset_password_for_email(
         email,
         options={
-            "redirect_to": "http://localhost:8501"
+            "redirect_to": "https://jakuhi.streamlit.app/"
         }
     )
 
