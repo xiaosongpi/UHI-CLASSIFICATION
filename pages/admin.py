@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from src.services.user_service import delete_user, get_all_users
 
-st.title("User")
+st.title("Pengguna")
 
 user = st.session_state.get("user")
 user = get_all_users(user["id"])

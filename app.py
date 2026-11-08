@@ -108,7 +108,7 @@ if not user and not st.session_state.get("cookie_checked"):
     st.rerun()
 
 if user and user["role"] == "admin":
-    pages.append(st.Page("pages/admin.py", title = "User", icon = ":material/person:", url_path = "user"))
+    pages.append(st.Page("pages/admin.py", title = "Pengguna", icon = ":material/person:", url_path = "user"))
 
 page = st.navigation(
     pages = pages,
