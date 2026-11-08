@@ -47,7 +47,7 @@ if histories:
 
             st.rerun()
 
-    df = df.drop(columns=["user_id", "id"])
+    df = df.drop(columns=["user_id", "id"], errors="ignore")
 
     st.download_button(
         "Download CSV",
