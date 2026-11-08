@@ -13,27 +13,30 @@ def handle_recovery_code():
     cookie = get_cookie()
     verifier = cookie.get("cv")
 
+    if not verifier and not st.session_state.get("cv_wait"):
+        st.session_state["cv_wait"] = True
+        st.info("Memeriksa link reset password...")
+        st.stop()
+
+    st.session_state.pop("cv_wait", None)
+
     if not verifier:
         st.session_state["page"] = "login"
         st.session_state["auth_error"] = (
             "Verifier tidak ditemukan. Buka link di browser yang sama "
             "dengan yang dipakai meminta reset, lalu minta email baru."
         )
-        st.session_state["open_dialog"] = True
-        st.query_params.clear()
-        st.rerun()
+    else:
+        try:
+            sb = get_supabase()
+            sb.auth._storage.set_item(f"{sb.auth._storage_key}-code-verifier", verifier)
+            sb.auth.exchange_code_for_session({"auth_code": code})
+            st.session_state["page"] = "new_password"
+            cookie.remove("cv")
+        except Exception as e:
+            st.session_state["page"] = "login"
+            st.session_state["auth_error"] = str(e)
 
-    try:
-        sb = get_supabase()
-        sb.auth._storage.set_item(f"{sb.auth._storage_key}-code-verifier", verifier or "")
-        sb.auth.exchange_code_for_session({"auth_code": code})
-        st.session_state["page"] = "new_password"
-        cookie.remove("cv")
-    except Exception as e:
-        st.session_state["page"] = "login"
-        st.session_state["auth_error"] = str(e)
-
-    st.session_state.pop("cv_retry", None)
     st.session_state["open_dialog"] = True
     st.query_params.clear()
     st.rerun()
