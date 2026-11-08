@@ -1,15 +1,30 @@
 import ee
 from shapely import force_2d
 from shapely.geometry import mapping
+import json
+import streamlit as st
 
 from src.preprocessing.function._01_boundary import get_boundary_file
 
+PROJECT = "earth-engine-project-503206"
+
 def gee_init():
     try:
-        ee.Initialize(project="earth-engine-project-503206")
-    except ee.EEException:
-        ee.Authenticate()
-        ee.Initialize(project="earth-engine-project-503206")
+        info = dict(st.secrets["gee"])
+    except Exception:
+        info = None
+
+    if info:  # di Streamlit Cloud
+        creds = ee.ServiceAccountCredentials(
+            info["client_email"], key_data=json.dumps(info)
+        )
+        ee.Initialize(creds, project=info.get("project_id", PROJECT))
+    else:  # di laptop
+        try:
+            ee.Initialize(project=PROJECT)
+        except ee.EEException:
+            ee.Authenticate()
+            ee.Initialize(project=PROJECT)
 
 def get_region(area):
     boundary = get_boundary_file("data/raw_data/boundary.gpkg", area)
