@@ -1,5 +1,5 @@
 import streamlit as st
-from pages.card import show_auth_dialog, delete_account, logout
+from pages.card import show_auth_dialog, delete_account, logout, handle_recovery_code
 from src.services.auth_service import restore_session
 from streamlit_js_eval import streamlit_js_eval
 import time
@@ -93,6 +93,7 @@ pages = [
     ),
 ]
 
+handle_recovery_code()
 restore_session()
 
 user = st.session_state.get("user")
