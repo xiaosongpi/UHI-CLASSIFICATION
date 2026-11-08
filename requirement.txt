@@ -1,9 +1,9 @@
 streamlit
-python-dotenv
 geopandas
 matplotlib
 pandas
 numpy
 pillow
-torch
+torch==2.14.1
+python-dotenv==1.2.4
 supabase
