@@ -9,3 +9,5 @@ python-dotenv==1.2.4
 supabase
 libgdal-dev
 libgl1
+streamlit-cookies-controller
+streamlit-js-eval
