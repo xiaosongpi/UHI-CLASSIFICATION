@@ -54,8 +54,14 @@ def restore_session():
     if st.session_state.get("user"):
         return
 
-    access = cookie.get("access")
-    refresh = cookie.get("refresh")
+    try:
+        access = cookie.get("access")
+        refresh = cookie.get("refresh")
+    except TypeError:
+        # Cookie belum dimuat browser. Streamlit akan rerun otomatis
+        # begitu cookie tiba, dan saat itu get() sudah berfungsi.
+        return
+
     if not access or not refresh:
         return
 
@@ -76,9 +82,12 @@ def restore_session():
         st.session_state["user"] = user
         create_session(user)
     except Exception:
-        cookie.remove("access")
-        cookie.remove("refresh")
-
+        try:
+            cookie.remove("access")
+            cookie.remove("refresh")
+        except Exception:
+            pass
+        
 def login(email, password):
     if not email:
         raise ValueError("Email tidak boleh kosong")
