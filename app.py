@@ -2,15 +2,12 @@ import streamlit as st
 from pages.card import show_auth_dialog, delete_account, logout, handle_recovery_code
 from src.services.auth_service import restore_session
 from streamlit_js_eval import streamlit_js_eval
-from streamlit_cookies_controller import CookieController
 import time
 from src.services.auth_service import get_cookie
 
 cookie = get_cookie()
 
 st.set_option("client.showErrorDetails", "none")
-
-st.session_state["_cookie"] = CookieController()
 
 handle_recovery_code()
 if st.session_state.get("page") != "new_password":

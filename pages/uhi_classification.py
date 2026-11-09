@@ -98,8 +98,6 @@ def predict_uhi(stat_df):
     if x_df.empty:
         raise ValueError("Tidak ada data statistik yang valid.")
 
-    # Sama seperti make_xy saat training (mode per_periode):
-    # fitur dikurangi rata-rata seluruh kecamatan pada periode yang sama.
     periods = stat_df.loc[x_df.index, "period"].astype(str)
     if periods.groupby(periods).size().min() < MIN_SUBDISTRICT_PER_PERIOD:
         raise ValueError(
@@ -168,8 +166,6 @@ with left:
 
         try:
             with st.status("Memulai klasifikasi...") as status:
-                # Model per_periode butuh seluruh kecamatan sebagai referensi
-                # periode, jadi selalu proses semua kecamatan lalu filter di akhir.
                 status.update(label="Mengambil citra Landsat...")
                 saved = save_landsat_images(ALL_SUBDISTRICT, start_date, end_date)
 
