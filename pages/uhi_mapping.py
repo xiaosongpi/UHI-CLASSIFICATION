@@ -82,7 +82,6 @@ def year_label(value):
 
 
 def norm(value):
-    """Normalisasi nama kecamatan: huruf besar, tanpa 'Kec.', tanpa simbol."""
     text = re.sub(r"\b(KECAMATAN|KEC)\b\.?", " ", str(value).upper())
     text = re.sub(r"[^A-Z0-9]+", " ", text)
     return " ".join(text.split())
@@ -107,11 +106,6 @@ def history_label(item):
 
 
 def history_to_rows(item):
-    """Ubah satu item history menjadi daftar hasil per kecamatan.
-
-    Hasil per kecamatan ada di item["statistic"] (list of dict), masing-masing
-    punya "subdistrict" dan "kelas_uhi" sendiri.
-    """
     statistic = item.get("statistic") or []
 
     if isinstance(statistic, dict): 

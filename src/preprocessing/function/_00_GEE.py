@@ -37,4 +37,6 @@ def get_landsat_image(area, start_date, end_date):
         .filterBounds(get_region(area))
         .filterDate(str(start_date), str(end_date))
         .filter(ee.Filter.lt("CLOUD_COVER", 30))
+        .filter(ee.Filter.eq("WRS_PATH", 122))
+        .filter(ee.Filter.eq("WRS_ROW", 64))
     )
