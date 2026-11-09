@@ -113,12 +113,10 @@ def apply_labels(df, breaks):
     else:
         raise ValueError(f"LABEL_MODE tidak dikenal: {LABEL_MODE}")
 
-
 def run_fold(params, fold):
     torch.set_num_threads(1) 
     x_tr, y_tr, x_va, y_va = fold
     return train_model(x_tr, y_tr, x_va, y_va, params)
-
 
 def standart_data(x_train, x_validation):
     mean = x_train.mean(axis=0)
@@ -130,7 +128,6 @@ def standart_data(x_train, x_validation):
     x_validation_s = (x_validation - mean) / std
 
     return x_train_s, x_validation_s, mean, std
-
 
 def _prov_labels(df):
     return apply_natural_breaks(df, fit_natural_breaks(df))
