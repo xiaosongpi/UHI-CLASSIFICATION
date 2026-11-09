@@ -18,7 +18,6 @@ _INTERNAL_HINTS = (
 
 
 def safe_message(error):
-    """Tampilkan pesan ramah jika aman, selain itu cukup Internal Server Error."""
     message = str(error).strip()
     if not message or any(hint in message.lower() for hint in _INTERNAL_HINTS):
         logger.error("Error internal pada proses auth", exc_info=error)

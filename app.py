@@ -4,8 +4,11 @@ from src.services.auth_service import restore_session
 from streamlit_js_eval import streamlit_js_eval
 from streamlit_cookies_controller import CookieController
 import time
+from src.services.auth_service import get_cookie
 
-# st.set_option("client.showErrorDetails", "none")
+cookie = get_cookie()
+
+st.set_option("client.showErrorDetails", "none")
 
 st.session_state["_cookie"] = CookieController()
 
