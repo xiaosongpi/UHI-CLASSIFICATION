@@ -287,6 +287,14 @@ def predict_uhi(stat_df):
     x = ((x_df - mean) / std).to_numpy(dtype=np.float32)
 
     with torch.inference_mode():
+        logits = model(torch.tensor(x)).numpy()
+
+    st.write("mean NaN:", int(mean.isna().sum()), "| std min:", float(std.min()))
+    st.write("fitur konstan:", int((stat_df[FEATURES].nunique() <= 1).sum()), "dari", len(FEATURES))
+    st.write("max |z-score|:", float(np.abs(x).max()))
+    st.write("logits (5 baris):", logits[:5])
+
+    with torch.inference_mode():
         prob = torch.softmax(model(torch.tensor(x)), dim=1).numpy()
 
     result = stat_df.loc[x_df.index].drop(columns=["lst"], errors="ignore")
