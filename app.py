@@ -5,7 +5,7 @@ from streamlit_js_eval import streamlit_js_eval
 from streamlit_cookies_controller import CookieController
 import time
 
-st.set_option("client.showErrorDetails", "none")
+# st.set_option("client.showErrorDetails", "none")
 
 st.session_state["_cookie"] = CookieController()
 
