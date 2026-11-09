@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-def index_spectral(images, is_visual = None):
+def index_spectral(images):
     i = 0
     for period, group_image in images.items():
         for items in group_image:
@@ -29,23 +29,4 @@ def index_spectral(images, is_visual = None):
                 [image[:6], np.stack(result, axis=0)], axis=0
             )
 
-            if is_visual:
-                Path("visual/index_spectral").mkdir(parents = True, exist_ok = True)
- 
-                nama_index = ["NDVI", "NDBI", "MNDWI"]
-                nama_cmap = ["Greens", "Reds", "Blues"]
- 
-                for k in range(3):
-                    data = np.ma.masked_equal(result[k], -9999)
-                    cmap = plt.get_cmap(nama_cmap[k]).copy()
-                    cmap.set_bad("black")
- 
-                    plt.figure(figsize = (6, 6))
-                    plt.imshow(data, cmap = cmap, vmin = -1, vmax = 1)
-                    plt.colorbar(label = nama_index[k], shrink = 0.8)
-                    plt.title(f"{nama_index[k]} {period}")
-                    plt.axis("off")
-                    plt.savefig(f"visual/index_spectral/{nama_index[k]}_{period}_{i}.png", dpi = 150, bbox_inches = "tight")
-                    plt.close()
-        
     return images

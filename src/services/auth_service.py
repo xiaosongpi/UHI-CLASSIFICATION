@@ -45,7 +45,6 @@ def register(username, email, password, password_confirm, role="user"):
     except Exception as e:
         raise ValueError(str(e))
 
-
 def create_session(user):
     cookie = get_cookie()
 
@@ -55,21 +54,9 @@ def create_session(user):
     except TypeError:
         pass
 
-
 def delete_session():
-    try:
-        get_supabase().auth.sign_out()
-    finally:
-        st.session_state.pop("user", None)
-
-        cookie = get_cookie()
-
-        try:
-            cookie.remove("access")
-            cookie.remove("refresh")
-        except TypeError:
-            pass
-
+    get_supabase().auth.sign_out()
+    st.session_state.pop("user", None)
 
 def restore_session():
     if st.session_state.get("user"):

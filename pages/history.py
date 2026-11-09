@@ -1,3 +1,5 @@
+import logging
+
 import pandas as pd
 import streamlit as st
 
@@ -18,15 +20,29 @@ if not user:
 
 st.title("Riwayat")
 
+logger = logging.getLogger(__name__)
+INTERNAL_ERROR = "Internal Server Error"
+
 user_id = user["id"]
-histories = get_history_by_user_id(user_id)
+
+try:
+    histories = get_history_by_user_id(user_id)
+except Exception as error:
+    logger.error("Gagal mengambil riwayat", exc_info=error)
+    st.error(INTERNAL_ERROR)
+    st.stop()
 
 if histories:
     df = pd.DataFrame(histories)
 
-    df = df.drop(columns=["user_id", "id", "statistic"])
+    df = df.drop(columns=["user_id", "id", "statistic"], errors="ignore")
 
-    df["created_at"] = pd.to_datetime(df["created_at"]).dt.strftime("%d-%m-%Y %H:%M")
+    if "created_at" in df.columns:
+        df["created_at"] = (
+            pd.to_datetime(df["created_at"], errors="coerce")
+            .dt.strftime("%d-%m-%Y %H:%M")
+            .fillna("-")
+        )
 
     event = st.dataframe(
         df,
@@ -41,11 +57,14 @@ if histories:
 
     if selected_rows:
         if st.button("Hapus Riwayat Terpilih", type="secondary"):
-            for index in selected_rows:
-                history_id = histories[index]["id"]
-                delete_history(history_id)
-
-            st.rerun()
+            try:
+                for index in selected_rows:
+                    delete_history(histories[index]["id"])
+            except Exception as error:
+                logger.error("Gagal menghapus riwayat", exc_info=error)
+                st.error(INTERNAL_ERROR)
+            else:
+                st.rerun()
 
     df = df.drop(columns=["user_id", "id"], errors="ignore")
 

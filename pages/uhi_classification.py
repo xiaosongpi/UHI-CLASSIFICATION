@@ -216,12 +216,11 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 MODEL_PATH = BASE_DIR / "src" / "preprocessing" / "models" / "ft_transformer_final.pt"
 BOUNDARY_PATH = BASE_DIR / "data" / "raw_data" / "boundary.gpkg"
 
-# --- Cek file wajib (pesan jelas, bukan error yang disembunyikan Streamlit) ---
-_missing = [p for p in (MODEL_PATH, BOUNDARY_PATH) if not p.exists()]
-if _missing:
+missing = [p for p in (MODEL_PATH, BOUNDARY_PATH) if not p.exists()]
+if missing:
     st.error(
         "File berikut tidak ditemukan di server:\n"
-        + "\n".join(f"- {p.relative_to(BASE_DIR)}" for p in _missing)
+        + "\n".join(f"- {p.relative_to(BASE_DIR)}" for p in missing)
     )
     st.stop()
 
@@ -259,11 +258,8 @@ def load_subdistrict_names():
     names = sorted(boundary["WADMKC"].dropna().unique().tolist())
     return ["Seluruh kecamatan"] + names
 
-
 @st.cache_resource
 def load_model():
-    # weights_only=False: checkpoint berisi dict (params, mean, std), bukan hanya tensor.
-    # Aman karena ini file model milik sendiri.
     ckpt = torch.load(MODEL_PATH, map_location="cpu", weights_only=False)
     params = ckpt["params"]
     model = FTTransformer(
@@ -275,9 +271,16 @@ def load_model():
     std = pd.Series(ckpt["std"]).reindex(FEATURES)
     return model, mean, std
 
-
 def predict_uhi(stat_df):
     model, mean, std = load_model()
+
+    missing = [col for col in FEATURES if col not in stat_df.columns]
+
+    if missing:
+        raise ValueError(
+            "Data statistik tidak lengkap. "
+            "Periksa hasil count_statistic()."
+        )
 
     x_df = stat_df[FEATURES].apply(pd.to_numeric, errors="coerce")
     x_df = x_df.replace([np.inf, -np.inf], np.nan).dropna()
@@ -292,13 +295,11 @@ def predict_uhi(stat_df):
         result[f"prob_{name.lower()}"] = prob[:, i]
     return result
 
-
 def reset_form():
     today = date.today()
     st.session_state["subdistrict"] = "Seluruh kecamatan"
     st.session_state["year"] = today.year
     st.session_state["month"] = today.month
-
 
 user = st.session_state.get("user")
 if not user:

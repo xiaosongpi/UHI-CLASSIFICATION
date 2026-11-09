@@ -2,8 +2,29 @@ from src.services.user_service import delete_user
 from src.services.auth_service import login, register, reset_password, update_password, create_session, delete_session, get_cookie
 from src.database.client import get_supabase
 
+import logging
 import streamlit as st
 import time
+
+logger = logging.getLogger(__name__)
+INTERNAL_ERROR = "Internal Server Error"
+
+_INTERNAL_HINTS = (
+    "nonetype", "object has no attribute", "object is not", "traceback",
+    "keyerror", "typeerror", "attributeerror", "errno", "timed out",
+    "connection", "http", "supabase", "postgrest", "jwt", "sqlstate",
+    "gotrue", "response", "json", "unexpected",
+)
+
+
+def safe_message(error):
+    """Tampilkan pesan ramah jika aman, selain itu cukup Internal Server Error."""
+    message = str(error).strip()
+    if not message or any(hint in message.lower() for hint in _INTERNAL_HINTS):
+        logger.error("Error internal pada proses auth", exc_info=error)
+        return INTERNAL_ERROR
+    return message
+
 
 def handle_recovery_code():
     code = st.query_params.get("code")
@@ -34,8 +55,9 @@ def handle_recovery_code():
             st.session_state["page"] = "new_password"
             cookie.remove("cv")
         except Exception as e:
+            logger.error("Gagal memproses link reset password", exc_info=e)
             st.session_state["page"] = "login"
-            st.session_state["auth_error"] = str(e)
+            st.session_state["auth_error"] = INTERNAL_ERROR
 
     st.session_state["open_dialog"] = True
     st.query_params.clear()
@@ -65,7 +87,11 @@ def login_page():
             st.rerun()
 
         except ValueError as e:
-            st.error(str(e))
+            st.error(safe_message(e))
+
+        except Exception as e:
+            logger.error("Error tak terduga", exc_info=e)
+            st.error(INTERNAL_ERROR)
 
     col1, col2 = st.columns(2)
 
@@ -109,7 +135,11 @@ def register_page():
                 go("login")
 
             except ValueError as e:
-                st.error(str(e))
+                st.error(safe_message(e))
+
+            except Exception as e:
+                logger.error("Error tak terduga", exc_info=e)
+                st.error(INTERNAL_ERROR)
 
     col1, col2 = st.columns(2)
 
@@ -132,7 +162,10 @@ def forget_password():
             
             st.success("Email telah terkirim")
         except ValueError as e:
-            st.error(str(e))
+            st.error(safe_message(e))
+        except Exception as e:
+            logger.error("Error tak terduga", exc_info=e)
+            st.error(INTERNAL_ERROR)
 
     col1, col2 = st.columns(2)
 
@@ -160,7 +193,11 @@ def new_password_page():
             st.rerun()
 
         except ValueError as e:
-            st.error(str(e))
+            st.error(safe_message(e))
+
+        except Exception as e:
+            logger.error("Error tak terduga", exc_info=e)
+            st.error(INTERNAL_ERROR)
 
 def show_auth_dialog():
     if "page" not in st.session_state:

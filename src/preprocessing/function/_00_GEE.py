@@ -14,12 +14,12 @@ def gee_init():
     except Exception:
         info = None
 
-    if info:  # di Streamlit Cloud
+    if info: 
         creds = ee.ServiceAccountCredentials(
             info["client_email"], key_data=json.dumps(info)
         )
         ee.Initialize(creds, project=info.get("project_id", PROJECT))
-    else:  # di laptop
+    else: 
         try:
             ee.Initialize(project=PROJECT)
         except ee.EEException:

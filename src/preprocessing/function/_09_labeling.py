@@ -3,19 +3,14 @@ import pandas as pd
 
 
 def normalize_lst_per_period(dataframe):
-    # CATATAN: fungsi ini tidak dipakai. Kalau suatu saat diaktifkan, rata-rata
-    # per periode (ref) juga harus dihitung dari DATA LATIH saja, lalu diterapkan
-    # ke data validasi/uji, sama seperti batas natural breaks di bawah.
     dataframe = dataframe.copy()
 
-    # 1. hitung rata-rata LST kota untuk tiap periode
     ref = {}
     for period in dataframe["period"].unique():
         rows = dataframe[dataframe["period"] == period]
         semua_piksel = np.concatenate(rows["lst"].values)
         ref[period] = np.nanmean(semua_piksel)
 
-    # 2. kurangi tiap piksel dengan rata-rata periodenya
     hasil = []
     for i in range(len(dataframe)):
         period = dataframe["period"].iloc[i]
@@ -27,21 +22,7 @@ def normalize_lst_per_period(dataframe):
 
 
 def fit_natural_breaks(dataframe, n_bins=2048, verbose=False):
-    """
-    Hitung batas natural breaks (3 kelas) dari `dataframe` yang diberikan.
-
-    PENTING: panggil fungsi ini HANYA dengan data latih (data latih satu fold,
-    atau seluruh data latih untuk model final). Jangan pernah dengan data
-    validasi/uji, supaya tidak terjadi data leakage.
-
-    Mengembalikan dict {"b1", "b2", "gvf"}.
-    """
     lst = np.concatenate(dataframe["lst"].values)
-
-    if verbose:
-        print("Jumlah baris:", len(dataframe))
-        print("Jumlah nilai LST:", len(lst))
-        print("Jumlah LST valid:", np.count_nonzero(~np.isnan(lst)))
 
     if len(lst) == 0:
         raise ValueError("Tidak ada data valid.")
@@ -67,7 +48,6 @@ def fit_natural_breaks(dataframe, n_bins=2048, verbose=False):
 
     m = len(hist)
 
-    # Vektorisasi loop dalam (j) -- hasil identik dengan loop ganda sebelumnya
     for i in range(m - 2):
         w1 = cum_w[i]
         x1 = cum_x[i]
@@ -86,7 +66,7 @@ def fit_natural_breaks(dataframe, n_bins=2048, verbose=False):
 
         total_sdcm = sdcm1 + (x22 - x2**2 / w2) + (x23 - x3**2 / w3)
 
-        k = int(np.argmin(total_sdcm))   # argmin = kemunculan pertama, sama dengan "<" pada loop lama
+        k = int(np.argmin(total_sdcm)) 
         if total_sdcm[k] < sdcm_min:
             sdcm_min = total_sdcm[k]
             b_b1 = center[i]
@@ -112,11 +92,6 @@ def fit_natural_breaks(dataframe, n_bins=2048, verbose=False):
 
 
 def apply_natural_breaks(dataframe, breaks):
-    """
-    Beri label (0 = rendah, 1 = normal, 2 = tinggi) memakai batas yang SUDAH
-    dihitung dari data latih. Aman dipakai untuk data latih, validasi, maupun uji.
-    Aturan label per baris: kelas dengan jumlah piksel terbanyak.
-    """
     b1, b2 = breaks["b1"], breaks["b2"]
     label_total = []
 

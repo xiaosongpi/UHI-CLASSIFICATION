@@ -22,13 +22,6 @@ DEVICE = torch.device(
     "cuda" if torch.cuda.is_available() else "cpu"
 )
 
-# =============================================================================
-# PILIH SKENARIO PELABELAN DI SINI
-#   "global"       : natural breaks dari seluruh LST (semua periode digabung)
-#   "normalisasi"  : LST dikurangi rata-rata kota per periode, lalu natural breaks
-#   "per_periode"  : natural breaks dihitung terpisah untuk tiap periode
-# Bisa juga dipilih saat memanggil: train_final_model(dataset, label_mode="normalisasi")
-# =============================================================================
 LABEL_MODE = "global"
 
 PARAM = {
@@ -43,25 +36,17 @@ FEATURES = [
     "mndwi_mean", "mndwi_std", "mndwi_min", "mndwi_max", "mndwi_q1", "mndwi_median", "mndwi_q3"
 ]
 
-# kunci tambahan di dalam "breaks" (bukan bagian dari output fit_natural_breaks asli)
-_EKSTRA = ("mode", "ref", "cadangan", "per_period", "feat_ref")   # [DIUBAH] + feat_ref
+_EKSTRA = ("mode", "ref", "cadangan", "per_period", "feat_ref") 
 
 
 def _suffix():
-    # "global" -> nama file sama persis seperti sebelumnya; mode lain diberi akhiran
     return "" if LABEL_MODE == "global" else f"_{LABEL_MODE}"
 
 
 def _pkey(series):
-    """Kunci periode seragam (string) agar konsisten di semua dict."""
     return series.astype(str)
 
-
-# =============================================================================
-# Mekanisme pelabelan (dipilih lewat if)
-# =============================================================================
 def _normalisasi(df, ref):
-    # [DIUBAH] tanpa fallback: periode tak dikenal -> KeyError (bukan label tak sebanding)
     d = df.copy()
     d["lst"] = pd.Series(
         [arr - ref[str(p)] for arr, p in zip(df["lst"], df["period"])],
@@ -72,7 +57,6 @@ def _normalisasi(df, ref):
 
 
 def _feat_ref(df):
-    """[DITAMBAH] rata-rata fitur per periode, dari data yang diberikan (data latih)."""
     return (
         df[FEATURES]
         .groupby(_pkey(df["period"]))
@@ -82,7 +66,6 @@ def _feat_ref(df):
 
 
 def fit_labels(df, verbose=False):
-    """Pengganti fit_natural_breaks. Hanya memakai data yang diberikan (data latih)."""
     if LABEL_MODE == "global":
         return fit_natural_breaks(df, verbose=verbose)
 
@@ -94,17 +77,16 @@ def fit_labels(df, verbose=False):
         breaks = dict(fit_natural_breaks(_normalisasi(df, ref), verbose=verbose))
         breaks["mode"] = "normalisasi"
         breaks["ref"] = ref
-        breaks["feat_ref"] = _feat_ref(df)          # [DITAMBAH]
+        breaks["feat_ref"] = _feat_ref(df)
         return breaks
 
     elif LABEL_MODE == "per_periode":
-        # b1, b2, gvf = batas global (hanya informasi, tidak dipakai untuk label)
         breaks = dict(fit_natural_breaks(df, verbose=verbose))
         breaks["mode"] = "per_periode"
         breaks["per_period"] = {
             str(p): fit_natural_breaks(g) for p, g in df.groupby("period")
         }
-        breaks["feat_ref"] = _feat_ref(df)          # [DITAMBAH]
+        breaks["feat_ref"] = _feat_ref(df)
         return breaks
 
     else:
@@ -112,7 +94,6 @@ def fit_labels(df, verbose=False):
 
 
 def apply_labels(df, breaks):
-    """Pengganti apply_natural_breaks, memakai batas hasil fit_labels."""
     bersih = {k: v for k, v in breaks.items() if k not in _EKSTRA}
 
     if LABEL_MODE == "global":
@@ -125,7 +106,6 @@ def apply_labels(df, breaks):
     elif LABEL_MODE == "per_periode":
         out = pd.Series(0, index=df.index, dtype="int64")
         for p, g in df.groupby("period"):
-            # [DIUBAH] tanpa fallback: periode tak dikenal -> KeyError
             b = breaks["per_period"][str(p)]
             out.loc[g.index] = apply_natural_breaks(g, b)
         return out
@@ -135,8 +115,7 @@ def apply_labels(df, breaks):
 
 
 def run_fold(params, fold):
-
-    torch.set_num_threads(1)  # hindari rebutan CPU antar proses
+    torch.set_num_threads(1) 
     x_tr, y_tr, x_va, y_va = fold
     return train_model(x_tr, y_tr, x_va, y_va, params)
 
@@ -153,11 +132,8 @@ def standart_data(x_train, x_validation):
     return x_train_s, x_validation_s, mean, std
 
 
-# label sementara, HANYA untuk menentukan pembagian (bukan label training)
-# (sengaja tetap "global" agar pembagian data identik untuk ketiga skenario)
 def _prov_labels(df):
     return apply_natural_breaks(df, fit_natural_breaks(df))
-
 
 def split_data(dataset):
     x = dataset[FEATURES]
@@ -171,14 +147,12 @@ def split_data(dataset):
     groups = dataset["subdistrict"].astype(str)
     y_prov = _prov_labels(dataset)
 
-    # 80% training, 20% sementara
     s1 = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
     train_idx, temp_idx = next(s1.split(dataset, y_prov, groups))
 
     train_df = dataset.iloc[train_idx]
     temp_df = dataset.iloc[temp_idx]
 
-    # 10% validation, 10% testing
     s2 = StratifiedGroupKFold(n_splits=2, shuffle=True, random_state=42)
     val_idx, test_idx = next(
         s2.split(
@@ -191,7 +165,6 @@ def split_data(dataset):
     val_df = temp_df.iloc[val_idx]
     test_df = temp_df.iloc[test_idx]
 
-    # Pastikan kecamatan tidak tumpang tindih
     assert set(train_df["subdistrict"]).isdisjoint(
         set(val_df["subdistrict"])
     )
@@ -209,11 +182,9 @@ def make_xy(dataframe, breaks):
     """Fitur + label, memakai batas yang sudah ditentukan dari data latih."""
     x = dataframe[FEATURES].copy()
 
-    # [DITAMBAH] mode label relatif -> fitur juga dibuat relatif terhadap periodenya
-    # (rata-rata fitur per periode dari DATA LATIH, tersimpan di breaks["feat_ref"])
     if LABEL_MODE != "global":
-        ref = pd.DataFrame(breaks["feat_ref"]).T[FEATURES]   # index = periode
-        x = x - ref.loc[_pkey(dataframe["period"])].to_numpy()   # KeyError jika periode tak dikenal
+        ref = pd.DataFrame(breaks["feat_ref"]).T[FEATURES]   
+        x = x - ref.loc[_pkey(dataframe["period"])].to_numpy()
 
     y = apply_labels(dataframe, breaks)
     return x, y
@@ -253,12 +224,7 @@ def count_metrics(y_true, predictions):
         "f1_score": f1.mean(),
     }
 
-
-# =============================================================================
-# [DITAMBAH] utilitas laporan / penyimpanan
-# =============================================================================
 def _flatten_breaks(b):
-    """Ubah breaks (berisi dict) menjadi baris datar untuk CSV."""
     flat = {k: v for k, v in b.items() if k not in _EKSTRA and k != "mode"}
     for p, v in b.get("ref", {}).items():
         flat[f"ref_{p}"] = v
@@ -269,7 +235,6 @@ def _flatten_breaks(b):
 
 
 def _baseline_majority(y_train, y_true):
-    """Metrik jika selalu menebak kelas mayoritas data latih."""
     mayoritas = int(y_train.value_counts().idxmax())
     pred = np.full(len(y_true), mayoritas, dtype=int)
     m = count_metrics(y_true, pred)
@@ -339,7 +304,6 @@ def train_model(
         lr=params["learning_rate"]
     )
 
-    # Early Stopping
     best_val_loss = float("inf")
     best_model_state = None
     counter = 0
@@ -377,7 +341,6 @@ def train_model(
                 y_validation_t.to(DEVICE)
             ).item()
 
-        # Periksa perbaikan validation loss
         if val_loss < best_val_loss - min_delta:
             best_val_loss = val_loss
             best_epoch = epoch + 1
@@ -398,7 +361,6 @@ def train_model(
             flush=True,
         )
 
-        # Hentikan training jika tidak ada perbaikan
         if counter >= patience:
             print(
                 f"\nEarly Stopping pada epoch {epoch + 1}. "
@@ -411,7 +373,6 @@ def train_model(
     if best_model_state is None:
         raise RuntimeError("Training gagal menghasilkan model terbaik.")
 
-    # Kembalikan bobot terbaik
     model.load_state_dict(best_model_state)
 
     training_time = time.perf_counter() - start_time
@@ -447,11 +408,6 @@ def train_model(
 
 
 def build_folds(train_df, n_splits=5):
-    """
-    Siapkan 5 fold. Di SETIAP fold, batas label (dan rata-rata per periode untuk
-    mode relatif) dihitung ulang hanya dari data latih fold itu, lalu diterapkan
-    ke data latih dan validasinya.
-    """
     cv = StratifiedGroupKFold(n_splits=n_splits, shuffle=True, random_state=42)
     groups = train_df["subdistrict"].astype(str)
     y_prov = _prov_labels(train_df)
@@ -468,9 +424,9 @@ def build_folds(train_df, n_splits=5):
         tr_df = train_df.iloc[tr_idx]
         va_df = train_df.iloc[va_idx]
 
-        breaks = fit_labels(tr_df)                  # hanya dari data latih fold
+        breaks = fit_labels(tr_df)
         x_tr, y_tr = make_xy(tr_df, breaks)
-        x_va, y_va = make_xy(va_df, breaks)         # batas yang sama dari data latih
+        x_va, y_va = make_xy(va_df, breaks)
 
         print(
             f"Fold {k}: b1={breaks['b1']:.4f} b2={breaks['b2']:.4f} "
@@ -480,7 +436,6 @@ def build_folds(train_df, n_splits=5):
             flush=True,
         )
 
-        # [DITAMBAH] peringatan jika ada kelas yang hilang
         if y_tr.nunique() < 3 or y_va.nunique() < 3:
             print(f"PERINGATAN fold {k}: ada kelas yang hilang "
                   f"(latih={y_tr.nunique()} kelas, valid={y_va.nunique()} kelas)",
@@ -496,13 +451,11 @@ def search_best_params(train_df, n_jobs=4):
     n_splits = 5
     folds, fold_breaks = build_folds(train_df, n_splits)
 
-    # [DIUBAH] CSV diratakan (tanpa dict), versi lengkap disimpan sebagai JSON
     flat_df = pd.DataFrame([{"fold": b["fold"], **_flatten_breaks(b)} for b in fold_breaks])
     flat_df.to_csv(OUTPUT_DIR / f"breaks_per_fold{_suffix()}.csv", index=False)
     with open(OUTPUT_DIR / f"breaks_per_fold{_suffix()}.json", "w") as f:
         json.dump(fold_breaks, f, indent=2, default=float)
 
-    # [DITAMBAH] stabilitas batas antar fold (penting untuk per_periode)
     print("\nStabilitas batas antar fold (mean, std):")
     print(flat_df.drop(columns="fold").agg(["mean", "std"]).T.to_string(), flush=True)
 
@@ -513,7 +466,6 @@ def search_best_params(train_df, n_jobs=4):
         for d in PARAM["d_model"]
     ]
 
-    # 27 kombinasi x 5 fold = 135 job, dijalankan paralel
     all_metrics = Parallel(n_jobs=n_jobs)(
         delayed(run_fold)(p, fold)
         for p in combinations
@@ -549,29 +501,24 @@ def train_final_model(dataset, label_mode=None):
     # [DITAMBAH] pastikan tidak ada baris tanpa piksel LST
     assert dataset["lst"].map(len).min() > 0, "Ada baris dengan LST kosong."
 
-    # 1. Pembagian data 80:10:10
     train_df, val_df, test_df = split_data(dataset)
 
     print("Jumlah data train:", len(train_df))
     print("Jumlah data validation:", len(val_df))
     print("Jumlah data test:", len(test_df))
 
-    # [DITAMBAH] mode relatif butuh semua periode val/uji ada di data latih
     if LABEL_MODE != "global":
         p_latih = set(train_df["period"].astype(str))
         p_lain = set(val_df["period"].astype(str)) | set(test_df["period"].astype(str))
         if not p_lain.issubset(p_latih):
             raise ValueError(f"Periode tidak ada di data latih: {p_lain - p_latih}")
 
-    # 2. Hyperparameter tuning hanya menggunakan data training
     best_params, cv_results = search_best_params(train_df)
 
     print("Best params:", best_params)
 
-    # 3. Batas label dihitung dari seluruh data training
     final_breaks = fit_labels(train_df, verbose=True)
 
-    # 4. Terapkan batas yang sama
     x_train, y_train = make_xy(train_df, final_breaks)
     x_val, y_val = make_xy(val_df, final_breaks)
     x_test, y_test = make_xy(test_df, final_breaks)
@@ -585,13 +532,11 @@ def train_final_model(dataset, label_mode=None):
     print("\nDistribusi kelas TEST:")
     print(y_test.value_counts().sort_index())
 
-    # [DITAMBAH] proporsi kelas per periode (cek apakah tiap periode terpaksa 3 kelas)
     print("\nProporsi kelas per periode (TRAIN):")
     print(
         pd.crosstab(_pkey(train_df["period"]), y_train, normalize="index").round(3)
     )
 
-    # 5. Training menggunakan validation untuk early stopping
     val_metrics, model, mean, std, _, _ = train_model(
         x_train, y_train,
         x_val, y_val,
@@ -599,7 +544,6 @@ def train_final_model(dataset, label_mode=None):
         return_model=True,
     )
 
-    # 6. Evaluasi akhir menggunakan data test
     x_test_s = (x_test - mean) / std
 
     x_test_t, y_test_t = convert_tensor(
@@ -622,7 +566,6 @@ def train_final_model(dataset, label_mode=None):
 
     metrics = count_metrics(y_true, predictions)
 
-    # [DITAMBAH] baseline kelas mayoritas
     baseline = _baseline_majority(y_train, y_true)
 
     print("\nTest metrics:", metrics)
@@ -648,20 +591,18 @@ def train_final_model(dataset, label_mode=None):
     print("Confusion Matrix:")
     print(matrix)
 
-    # 7. Simpan model
     torch.save(
         {
             "state_dict": model.state_dict(),
             "params": best_params,
             "mean": mean.to_dict(),
             "std": std.to_dict(),
-            "breaks": final_breaks,        # sudah memuat feat_ref untuk mode relatif
-            "label_mode": LABEL_MODE,      # [DITAMBAH]
+            "breaks": final_breaks, 
+            "label_mode": LABEL_MODE,
         },
         OUTPUT_DIR / f"ft_transformer_final{_suffix()}.pt",
     )
 
-    # 8. Simpan evaluasi test
     report = classification_report(
         y_true,
         predictions,
@@ -678,7 +619,7 @@ def train_final_model(dataset, label_mode=None):
         "macro_precision": float(metrics["precision"]),
         "macro_recall": float(metrics["recall"]),
         "macro_f1": float(metrics["f1_score"]),
-        "baseline_majority": baseline,     # [DITAMBAH]
+        "baseline_majority": baseline,
         "n_test": int(len(y_true)),
         "breaks": final_breaks,
         "best_params": best_params,
@@ -699,8 +640,6 @@ def train_final_model(dataset, label_mode=None):
     with open(OUTPUT_DIR / f"evaluasi_model{_suffix()}.json", "w") as f:
         json.dump(evaluation, f, indent=2, default=float)
 
-    # 9. Prediksi seluruh dataset untuk kebutuhan output peta
-    # [DIUBAH] pakai make_xy agar fitur relatif ikut diterapkan pada mode non-global
     x_all, y_all = make_xy(dataset, final_breaks)
     x_all_s = (x_all - mean) / std
 
@@ -733,7 +672,6 @@ def train_final_model(dataset, label_mode=None):
     output["prob_normal"] = prob_all[:, 1]
     output["prob_tinggi"] = prob_all[:, 2]
 
-    # Identifikasi pembagian dataset
     output["split"] = "latih"
     output.loc[val_df.index, "split"] = "validasi"
     output.loc[test_df.index, "split"] = "uji"
@@ -743,7 +681,6 @@ def train_final_model(dataset, label_mode=None):
         index=False,
     )
 
-    # 10. Simpan hasil grid search
     cv_df = pd.DataFrame(cv_results)
 
     cv_df.to_csv(
