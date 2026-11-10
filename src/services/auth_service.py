@@ -3,6 +3,7 @@ from streamlit_cookies_controller import CookieController
 from src.database.client import get_supabase
 from src.database import user_db
 import time
+import secrets
 
 @st.cache_resource
 def _verifier_store():
