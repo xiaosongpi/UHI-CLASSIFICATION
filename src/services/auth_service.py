@@ -2,6 +2,15 @@ import streamlit as st
 from streamlit_cookies_controller import CookieController
 from src.database.client import get_supabase
 from src.database import user_db
+import time
+
+@st.cache_resource
+def _verifier_store():
+    return {}
+
+def pop_verifier(rid):
+    item = _verifier_store().pop(rid, None) if rid else None
+    return item[0] if item else None
 
 def get_cookie():
     if "_cookie" not in st.session_state:
@@ -133,22 +142,23 @@ def reset_password(email):
     if not email:
         raise ValueError("Email tidak boleh kosong")
 
+    rid = secrets.token_urlsafe(16)
     sb = get_supabase()
 
     sb.auth.reset_password_for_email(
         email,
-        options={
-            "redirect_to": "https://jakuhi.streamlit.app/"
-        }
+        options={"redirect_to": f"https://jakuhi.streamlit.app/?rid={rid}"},
     )
 
-    verifier = sb.auth._storage.get_item(
-        f"{sb.auth._storage_key}-code-verifier"
-    )
+    verifier = sb.auth._storage.get_item(f"{sb.auth._storage_key}-code-verifier")
+    if not verifier:
+        raise ValueError("Gagal menyiapkan reset password, coba lagi")
 
-    if verifier:
-        cookie = get_cookie()
-        cookie.set("cv", verifier, max_age=3600, same_site="lax")
+    store = _verifier_store()
+    now = time.time()
+    for k in [k for k, (_, t) in store.items() if now - t > 3600]:
+        store.pop(k, None)
+    store[rid] = (verifier, now)
         
 def update_password(password, password_confirm):
     if not password:

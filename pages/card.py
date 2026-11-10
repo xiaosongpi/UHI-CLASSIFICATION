@@ -1,5 +1,5 @@
 from src.services.user_service import delete_user
-from src.services.auth_service import login, register, reset_password, update_password, create_session, delete_session, get_cookie
+from src.services.auth_service import login, register, reset_password, update_password, create_session, delete_session, pop_verifier
 from src.database.client import get_supabase
 
 import logging
@@ -16,7 +16,6 @@ _INTERNAL_HINTS = (
     "gotrue", "response", "json", "unexpected",
 )
 
-
 def safe_message(error):
     message = str(error).strip()
     if not message or any(hint in message.lower() for hint in _INTERNAL_HINTS):
@@ -24,29 +23,17 @@ def safe_message(error):
         return INTERNAL_ERROR
     return message
 
-
 def handle_recovery_code():
     code = st.query_params.get("code")
     if not code:
         return
 
-    cookie = get_cookie()
-    verifier = cookie.get("cv")
-
-    tries = st.session_state.get("cv_tries", 0)
-    if not verifier and tries < 5:
-        st.session_state["cv_tries"] = tries + 1
-        st.info("Memeriksa link reset password...")
-        time.sleep(0.5)
-        st.rerun()
-
-    st.session_state.pop("cv_tries", None)
+    verifier = pop_verifier(st.query_params.get("rid"))
 
     if not verifier:
         st.session_state["page"] = "login"
         st.session_state["auth_error"] = (
-            "Verifier tidak ditemukan. Buka link di browser yang sama "
-            "dengan yang dipakai meminta reset, lalu minta email baru."
+            "Link reset tidak valid atau sudah kedaluwarsa. Minta email baru."
         )
     else:
         try:
@@ -54,7 +41,6 @@ def handle_recovery_code():
             sb.auth._storage.set_item(f"{sb.auth._storage_key}-code-verifier", verifier)
             sb.auth.exchange_code_for_session({"auth_code": code})
             st.session_state["page"] = "new_password"
-            cookie.remove("cv")
         except Exception as e:
             logger.error("Gagal memproses link reset password", exc_info=e)
             st.session_state["page"] = "login"
