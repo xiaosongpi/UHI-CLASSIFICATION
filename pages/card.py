@@ -33,12 +33,14 @@ def handle_recovery_code():
     cookie = get_cookie()
     verifier = cookie.get("cv")
 
-    if not verifier and not st.session_state.get("cv_wait"):
-        st.session_state["cv_wait"] = True
+    tries = st.session_state.get("cv_tries", 0)
+    if not verifier and tries < 5:
+        st.session_state["cv_tries"] = tries + 1
         st.info("Memeriksa link reset password...")
-        st.stop()
+        time.sleep(0.5)
+        st.rerun()
 
-    st.session_state.pop("cv_wait", None)
+    st.session_state.pop("cv_tries", None)
 
     if not verifier:
         st.session_state["page"] = "login"
