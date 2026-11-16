@@ -224,19 +224,80 @@ with left:
             result_box.empty()
             st.warning(f"Tidak ada citra untuk {MONTH[month - 1]} {year}.")
 
+
 if "pred" in st.session_state:
     with result_box.container():
         pred = st.session_state["pred"]
 
-        sub = st.selectbox("Kecamatan", pred["subdistrict"].unique(), key="res_sub")
+        sub = st.selectbox(
+            "Kecamatan",
+            pred["subdistrict"].unique(),
+            key="res_sub"
+        )
         row = pred[pred["subdistrict"] == sub].iloc[0]
 
         st.caption(f"Periode: {row['period']}")
         st.subheader(row["kelas_uhi"])
 
+        # Statistik Land Surface Temperature
+        st.subheader("Land Surface Temperature (LST)")
+
+        col1, col2, col3 = st.columns(3)
+
+        col1.metric(
+            "Rata-rata",
+            f"{row['lst_mean']:.2f} °C"
+        )
+        col2.metric(
+            "Minimum",
+            f"{row['lst_min']:.2f} °C"
+        )
+        col3.metric(
+            "Maksimum",
+            f"{row['lst_max']:.2f} °C"
+        )
+
+        st.divider()
+
+        # Statistik Indeks Spektral
+        st.subheader("Indeks Spektral")
+
+        index_data = pd.DataFrame({
+            "Indeks": ["NDVI", "NDBI", "MNDWI"],
+            "Rata-rata": [
+                row["ndvi_mean"],
+                row["ndbi_mean"],
+                row["mndwi_mean"]
+            ],
+            "Minimum": [
+                row["ndvi_min"],
+                row["ndbi_min"],
+                row["mndwi_min"]
+            ],
+            "Maksimum": [
+                row["ndvi_max"],
+                row["ndbi_max"],
+                row["mndwi_max"]
+            ]
+        })
+
+        st.dataframe(
+            index_data.round(4),
+            hide_index=True,
+            use_container_width=True
+        )
+
+        st.divider()
+
+        # Probabilitas Klasifikasi
+        st.subheader("Probabilitas Klasifikasi")
+
         for name in CLASS_NAMES:
             value = float(row[f"prob_{name.lower()}"])
-            st.progress(value, text=f"{name}: {value:.0%}")
+            st.progress(
+                value,
+                text=f"{name}: {value:.0%}"
+            )
 
         if st.button("Lihat di peta"):
             st.switch_page("pages/uhi_mapping.py")
