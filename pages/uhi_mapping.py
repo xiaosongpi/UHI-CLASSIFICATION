@@ -199,69 +199,69 @@ with st.container(border=True):
             default=KNOWN_LABELS
         )
 
+with st.spinner("Memuat peta . . . "):
+    filtered = boundary.copy()
 
-filtered = boundary.copy()
+    if wilayah != "Seluruh kecamatan":
+        filtered = filtered[filtered["WADMKK"] == wilayah]
 
-if wilayah != "Seluruh kecamatan":
-    filtered = filtered[filtered["WADMKK"] == wilayah]
-
-if has_history:
-    filtered = filtered[
-        ~filtered["kelas_uhi"].isin(KNOWN_LABELS)
-        | filtered["kelas_uhi"].isin(list(tingkat or []))
-    ]
-
-
-map_col, list_col = st.columns(2)
-
-with map_col:
-    fig = px.choropleth_map(
-        filtered,
-        geojson=filtered.__geo_interface__,
-        locations="WADMKC",
-        featureidkey="properties.WADMKC",
-        color="kelas_uhi",
-        color_discrete_map=COLOR_MAP,
-        hover_name="WADMKC",
-        hover_data={
-            "kelas_uhi": True,
-            **{col: ":.3f" for col in INDEX_COLS}
-        },
-        labels=INDEX_COLS,
-        center={"lat": -6.2, "lon": 106.86},
-        zoom=9.5,
-        map_style="carto-positron",
-        height=500
-    )
-
-    fig.update_traces(
-        marker_line_color="black",
-        marker_line_width=0.5
-    )
-
-    fig.update_layout(
-        margin={"l": 0, "r": 0, "t": 0, "b": 0},
-        legend={"orientation": "h"}
-    )
-
-    st.plotly_chart(fig, width="stretch")
+    if has_history:
+        filtered = filtered[
+            ~filtered["kelas_uhi"].isin(KNOWN_LABELS)
+            | filtered["kelas_uhi"].isin(list(tingkat or []))
+        ]
 
 
-with list_col:
-    with st.container(height=500):
-        st.markdown("#### Daftar kecamatan")
+    map_col, list_col = st.columns(2)
 
-        for _, row in filtered.iterrows():
-            c_name, c_badge = st.columns(
-                [3, 2],
-                vertical_alignment="center"
-            )
+    with map_col:
+        fig = px.choropleth_map(
+            filtered,
+            geojson=filtered.__geo_interface__,
+            locations="WADMKC",
+            featureidkey="properties.WADMKC",
+            color="kelas_uhi",
+            color_discrete_map=COLOR_MAP,
+            hover_name="WADMKC",
+            hover_data={
+                "kelas_uhi": True,
+                **{col: ":.3f" for col in INDEX_COLS}
+            },
+            labels=INDEX_COLS,
+            center={"lat": -6.2, "lon": 106.86},
+            zoom=9.5,
+            map_style="carto-positron",
+            height=500
+        )
 
-            with c_name:
-                st.write(row["WADMKC"])
+        fig.update_traces(
+            marker_line_color="black",
+            marker_line_width=0.5
+        )
 
-            with c_badge:
-                st.badge(
-                    row["kelas_uhi"],
-                    color=COLOR_MAP.get(row["kelas_uhi"], "gray")
+        fig.update_layout(
+            margin={"l": 0, "r": 0, "t": 0, "b": 0},
+            legend={"orientation": "h"}
+        )
+
+        st.plotly_chart(fig, width="stretch")
+
+
+    with list_col:
+        with st.container(height=500):
+            st.markdown("#### Daftar kecamatan")
+
+            for _, row in filtered.iterrows():
+                c_name, c_badge = st.columns(
+                    [3, 2],
+                    vertical_alignment="center"
                 )
+
+                with c_name:
+                    st.write(row["WADMKC"])
+
+                with c_badge:
+                    st.badge(
+                        row["kelas_uhi"],
+                        color=COLOR_MAP.get(row["kelas_uhi"], "gray")
+                    )
