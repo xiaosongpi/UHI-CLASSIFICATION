@@ -35,9 +35,9 @@ INDEX_COLS = {
     "mndwi_q1": "MNDWI q1",
     "mndwi_q3": "MNDWI q3",
     "mndwi_median": "MNDWI median",
-    "mndwi_median": "lst",
-    "mndwi_median": "lst_min",
-    "mndwi_median": "lst_max",
+    "lst": "LST",
+    "lst_min": "LST min",
+    "lst_max": "LST max",
 }
 
 LABEL_MAP = {
