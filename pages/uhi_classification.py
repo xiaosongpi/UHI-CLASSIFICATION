@@ -1,5 +1,6 @@
 import calendar
 import json
+import logging
 from datetime import date
 from pathlib import Path
 
@@ -19,6 +20,8 @@ from src.preprocessing.function._07_composit_monthly import composite_image
 from src.preprocessing.function._05_inverse_distance_weighting import inverse_distance_weighting
 from src.preprocessing.function._08_statistic_count import count_statistic
 from src.preprocessing.function._11_model import FTTransformer
+
+logger = logging.getLogger(__name__)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 MODEL_PATH = BASE_DIR / "src" / "preprocessing" / "models" / "ft_transformer_final.pt"
@@ -216,9 +219,10 @@ with left:
                 st.session_state["pred"] = pred
                 status.update(label="Klasifikasi selesai.", state="complete")
 
-        except Exception as error:
+        except Exception:
+            logger.exception("Klasifikasi gagal")
             result_box.empty()
-            st.error(f"Klasifikasi gagal: {error}")
+            st.warning(f"Tidak ada citra untuk {MONTH[month - 1]} {year}.")
 
 if "pred" in st.session_state:
     with result_box.container():
